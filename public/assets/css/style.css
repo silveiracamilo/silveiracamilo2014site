@@ -1,0 +1,105 @@
+body {
+	padding: 20px 20px 20px 20px;
+  background-color: #000;
+}
+
+.form-login {
+max-width: 350px;
+padding: 19px 29px 29px;
+margin: 0 auto;
+margin-top: 100px;
+background-color: #fff;
+border: 1px solid #e5e5e5;
+-webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+        border-radius: 5px;
+-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+        box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.form-login .form-login-heading,
+.form-login .checkbox {
+margin-bottom: 10px;
+}
+.form-login input[type="text"],
+.form-login input[type="password"] {
+font-size: 16px;
+height: auto;
+margin-bottom: 15px;
+padding: 7px 9px;
+}
+
+
+.form-style {	        
+	padding: 19px 39px 19px 19px;
+	margin: 0 0px 20px;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	        border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	        box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.form-style h2 {
+	font-size: 30px;
+}
+.form-style input[type="text"], .form-style select {
+	font-size: 16px;
+  width:100%;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 7px 9px;
+}
+
+.logo-topo {
+	position: absolute;
+	left:50%;
+	margin-left:-184px;
+}
+
+.logo-topo h3 {
+	text-align: center;
+}
+
+.content {
+	margin-top: 100px;
+}
+
+.pagination {
+  text-align: center;
+  padding: 0.3em;
+  cursor: default; 
+  margin-top: 25px;
+}
+.pagination a, .pagination span, .pagination em {
+    padding: 0.2em 0.5em;
+}
+.pagination .disabled {
+    color: #cccccc;
+}
+.pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    color: #FFFFF;
+}
+.pagination a {
+    border: 1px solid #dddddd;
+    background-color: #FFFFF;
+    color: #FFFFF;
+    text-decoration: none;
+}
+.pagination .page_info {
+    color: #aaaaaa;
+    padding-top: 0.8em;
+}
+.pagination .previous_page, .pagination .next_page {
+    border-width: 2px;
+}
+.pagination .previous_page {
+    margin-right: 1em;
+}
+.pagination .next_page {
+    margin-left: 1em;
+}

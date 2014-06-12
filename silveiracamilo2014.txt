@@ -1,0 +1,64 @@
+users
+	name:string[100]
+	email:string
+	password:string
+
+	php artisan generate:scaffold users --fields="name:string[100], email:string, password:string[50]"
+
+home
+	title:string[100]
+	description:string
+
+	php artisan generate:scaffold homes --fields="title:string[100], description:string"
+works
+	tipo_id:integer
+	title:string[100]
+	description:text
+	date:date
+	technologies:string[100]
+	produced_in:string[100]
+	produced_link:string[100]
+	link:string[100]
+	path:string[100]
+	video:string[100]
+	thumb:string[100]
+	swf:string[100]
+	swf_width:integer
+	swf_height:integer
+
+
+	php artisan generate:scaffold works --fields="tipo_id:integer, title:string[100], description:text, date:date, technologies:string[100], produced_in:string[100], produced_link:string[100], link:string[100], path:string[100], video:string[100], thumb:string[100], swf:string[100], swf_width:integer, swf_height:integer"
+
+work_pictures
+	work_id:integer
+	title:string[100]
+	picture:string[100]
+
+
+	php artisan generate:scaffold work_pictures --fields="work_id:integer, title:string[100], picture:string[100]"
+	
+about
+	title:string
+	description:text
+	picture:string[100]
+
+
+	php artisan generate:scaffold abouts --fields="title:string, description:text, picture:string[100]"
+	
+services
+	name:string[100]
+	description:text
+	image:string[100]
+
+	php artisan generate:scaffold services --fields="name:string[100], description:text, image:string[100]"
+
+posts
+	title:string
+	description:string
+	post:text
+	image:string[100]
+
+
+	php artisan generate:scaffold posts --fields="title:string, description:string, post:text, image:string[100]"
+
+php artisan migrate
