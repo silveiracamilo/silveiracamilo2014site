@@ -3,6 +3,10 @@ body {
   background-color: #000;
 }
 
+h1 {
+  color:#FFF;
+}
+
 .form-login {
 max-width: 350px;
 padding: 19px 29px 29px;

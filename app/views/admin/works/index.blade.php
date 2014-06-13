@@ -7,10 +7,10 @@
 <p>{{ link_to_route('admin.works.create', 'Add new work', '', array('class'=>'btn btn-success')) }}</p>
 
 @if ($works->count())
-	<table class="table table-striped table-bordered">
+	<table class="table table-hover table-bordered" style="background-color:#EEE;">
 		<thead>
 			<tr>
-				<th>Tipo_id</th>
+				<th>Work type</th>
 				<th>Title</th>
 				<th>Description</th>
 				<th>Date</th>
@@ -30,7 +30,7 @@
 		<tbody>
 			@foreach ($works as $work)
 				<tr>
-					<td>{{{ $work->tipo_id }}}</td>
+					<td>{{{ $work->work_type()->name }}}</td>
 					<td>{{{ $work->title }}}</td>
 					<td>{{{ $work->description }}}</td>
 					<td>{{{ $work->date }}}</td>

@@ -50,6 +50,10 @@ class Admin_WorksController extends Admin_BaseController {
 
 		if ($validation->passes())
 		{
+			$input['thumb'] = $this->uploadFile($input, 'thumb');
+			$input['swf'] = $this->uploadFile($input, 'swf');
+			$input['video'] = $this->uploadFile($input, 'video');
+
 			$this->work->create($input);
 
 			return Redirect::route('admin.works.index');
@@ -129,6 +133,14 @@ class Admin_WorksController extends Admin_BaseController {
 	{
 		$this->work->find($id)->delete();
 
+		$work = $this->work->find($id);
+
+		File::delete(public_path().$work->thumb);
+		if($work->swf!=null) File::delete(public_path().$work->swf);
+		if($work->video!=null) File::delete(public_path().$work->video);
+
+		$work->delete();
+
 		return Redirect::route('admin.works.index');
 	}
 
@@ -141,6 +153,21 @@ class Admin_WorksController extends Admin_BaseController {
 		}
 
 		return $selectWorkTypes;
+	}
+
+	protected function uploadFile($input, $name){
+		if (Input::hasFile($name))
+		{
+			$extension = Input::file($name)->getClientOriginalExtension();
+			$name_file = Input::file($name)->getClientOriginalExtension().str_random(4).".".$extension;
+			$path = '/uploads/works/'.$extension."/";
+		    
+		    Input::file($name)->move(public_path().$path, $name_file);
+
+		    return $path.$name_file;
+		}
+
+		return $input[$name];
 	}
 
 }

@@ -5,7 +5,7 @@
 <h1>Home</h1>
 
 @if ($homes->count())
-	<table class="table table-striped table-bordered">
+	<table class="table table-hover table-bordered" style="background-color:#EEE;">
 		<thead>
 			<tr>
 				<th>Title</th>
@@ -18,7 +18,7 @@
 				<tr>
 					<td>{{{ $home->title }}}</td>
 					<td>{{{ $home->description }}}</td>
-                    <td>{{ link_to_route('admin.homes.edit', 'Edit', array($home->id), array('class' => 'btn btn-info')) }}</td>
+                    <td width="5%">{{ link_to_route('admin.homes.edit', 'Edit', array($home->id), array('class' => 'btn btn-info pull-right')) }}</td>
 				</tr>
 			@endforeach
 		</tbody>

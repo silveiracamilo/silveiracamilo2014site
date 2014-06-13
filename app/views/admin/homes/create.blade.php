@@ -2,31 +2,27 @@
 
 @section('main')
 
-<h1>Create Home</h1>
-
-{{ Form::open(array('route' => 'admin.homes.store')) }}
-	<ul>
-        <li>
-            {{ Form::label('title', 'Title:') }}
-            {{ Form::text('title') }}
-        </li>
-
-        <li>
-            {{ Form::label('description', 'Description:') }}
-            {{ Form::text('description') }}
-        </li>
-
-		<li>
-			{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
-		</li>
-	</ul>
-{{ Form::close() }}
-
 @if ($errors->any())
 	<ul>
-		{{ implode('', $errors->all('<li class="error">:message</li>')) }}
+		{{ implode('', $errors->all('<li class="error" style="color:#FFF;">:message</li>')) }}
 	</ul>
 @endif
+
+
+{{ Form::open(array('class'=>'form-style', 'route' => 'admin.homes.store')) }}
+
+	<h2>Create Home</h2>
+	
+    {{ Form::label('title', 'Title:') }}
+    {{ Form::text('title') }}
+
+    {{ Form::label('description', 'Description:') }}
+    {{ Form::text('description') }}
+
+    </br></br>
+	{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
+	
+{{ Form::close() }}
 
 @stop
 

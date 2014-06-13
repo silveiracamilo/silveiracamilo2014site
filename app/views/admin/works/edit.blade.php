@@ -2,16 +2,24 @@
 
 @section('main')
 
-<h1>Edit Work</h1>
+@if ($errors->any())
+    <ul>
+        {{ implode('', $errors->all('<li class="error" style="color:#FFF;">:message</li>')) }}
+    </ul>
+@endif
+
 {{ Form::model($work, array('class'=>'form-style', 'files'=>true, 'method' => 'PATCH', 'route' => array('admin.works.update', $work->id))) }}
-    {{ Form::label('work_type_id', 'Work Type Id:') }}
+    
+    <h2>Edit Work</h2>    
+
+    {{ Form::label('work_type_id', 'Work Type:') }}
     {{ Form::select('Work Type Id', $selectWorkTypes) }}
 
     {{ Form::label('title', 'Title:') }}
     {{ Form::text('title') }}
 
     {{ Form::label('description', 'Description:') }}
-    {{ Form::textarea('description') }}
+    {{ Form::textarea('description', null, array('style'=>'width:100%;')) }}
 
     {{ Form::label('date', 'Date:') }}
     {{ Form::text('date') }}
@@ -31,14 +39,14 @@
     {{ Form::label('path', 'Path:') }}
     {{ Form::text('path') }}
 
-    {{ Form::label('video', 'Video:') }}
-    {{ Form::file('video') }}
-
     {{ Form::label('thumb', 'Thumb:') }}
     {{ Form::file('thumb') }}
 
     {{ Form::label('swf', 'Swf:') }}
     {{ Form::file('swf') }}
+
+    {{ Form::label('video', 'Video:') }}
+    {{ Form::file('video') }}
 
     {{ Form::label('swf_width', 'Swf_width:') }}
     {{ Form::input('number', 'swf_width') }}
@@ -51,11 +59,5 @@
 	{{ link_to_route('admin.works.show', 'Cancel', $work->id, array('class' => 'btn')) }}
 		
 {{ Form::close() }}
-
-@if ($errors->any())
-	<ul>
-		{{ implode('', $errors->all('<li class="error">:message</li>')) }}
-	</ul>
-@endif
 
 @stop

@@ -7,7 +7,7 @@
 <p>{{ link_to_route('admin.work_types.create', 'Add new work_type', '', array('class'=>'btn btn-success')) }}</p>
 
 @if ($work_types->count())
-	<table class="table table-striped table-bordered">
+	<table class="table table-hover table-bordered" style="background-color:#EEE;">
 		<thead>
 			<tr>
 				<th>Name</th>
@@ -18,10 +18,10 @@
 			@foreach ($work_types as $work_type)
 				<tr>
 					<td>{{{ $work_type->name }}}</td>
-                    <td>{{ link_to_route('admin.work_types.edit', 'Edit', array($work_type->id), array('class' => 'btn btn-info')) }}</td>
-                    <td>
+                    <td width="5%">{{ link_to_route('admin.work_types.edit', 'Edit', array($work_type->id), array('class' => 'btn btn-info pull-right')) }}</td>
+                    <td width="5%">
                         {{ Form::open(array('method' => 'DELETE', 'route' => array('admin.work_types.destroy', $work_type->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+                            {{ Form::submit('Delete', array('class' => 'btn btn-danger pull-right')) }}
                         {{ Form::close() }}
                     </td>
 				</tr>

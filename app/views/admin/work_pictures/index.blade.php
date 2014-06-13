@@ -7,7 +7,7 @@
 <p>{{ link_to_route('admin.work_pictures.create', 'Add new work_picture', '', array('class'=>'btn btn-success')) }}</p>
 
 @if ($work_pictures->count())
-	<table class="table table-striped table-bordered">
+	<table class="table table-hover table-bordered" style="background-color:#EEE;">
 		<thead>
 			<tr>
 				<th>Work_id</th>
@@ -22,10 +22,10 @@
 					<td>{{{ $work_picture->work_id }}}</td>
 					<td>{{{ $work_picture->title }}}</td>
 					<td>{{{ $work_picture->picture }}}</td>
-                    <td>{{ link_to_route('admin.work_pictures.edit', 'Edit', array($work_picture->id), array('class' => 'btn btn-info')) }}</td>
-                    <td>
+                    <td width="5%">{{ link_to_route('admin.work_pictures.edit', 'Edit', array($work_picture->id), array('class' => 'btn btn-info pull-right')) }}</td>
+                    <td width="5%">
                         {{ Form::open(array('method' => 'DELETE', 'route' => array('admin.work_pictures.destroy', $work_picture->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+                            {{ Form::submit('Delete', array('class' => 'btn btn-danger pull-right')) }}
                         {{ Form::close() }}
                     </td>
 				</tr>

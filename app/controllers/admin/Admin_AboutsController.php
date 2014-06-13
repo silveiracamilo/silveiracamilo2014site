@@ -61,22 +61,6 @@ class Admin_AboutsController extends Admin_BaseController {
 			->with('message', 'There were validation errors.');
 	}
 
-	protected function uploadPicture($input){
-		if (Input::hasFile('picture'))
-		{
-			$name_file = 'picture_about.'.Input::file('picture')->getClientOriginalExtension();
-			$path = '/uploads/abouts/';
-		    
-		    Input::file('picture')->move(public_path().$path, $name_file);
-
-		    //$input['picture'] = $path.$name_file;
-
-		    return $path.$name_file;
-		}
-
-		return $input['picture'];
-	}
-
 	/**
 	 * Display the specified resource.
 	 *
@@ -146,6 +130,22 @@ class Admin_AboutsController extends Admin_BaseController {
 		$this->about->find($id)->delete();
 
 		return Redirect::route('admin.abouts.index');
+	}
+
+	protected function uploadPicture($input){
+		if (Input::hasFile('picture'))
+		{
+			$name_file = 'picture_about.'.Input::file('picture')->getClientOriginalExtension();
+			$path = '/uploads/abouts/';
+		    
+		    Input::file('picture')->move(public_path().$path, $name_file);
+
+		    //$input['picture'] = $path.$name_file;
+
+		    return $path.$name_file;
+		}
+
+		return $input['picture'];
 	}
 
 }

@@ -17,6 +17,7 @@
 			<div id="menu">
 				
 				<a href="/admin/homes" title="Home" class="btn btn-primary">Home</a>
+				<a href="/admin/users" title="Users" class="btn btn-primary">Users</a>
 				<a href="/admin/abouts" title="About" class="btn btn-primary">About</a>
 				<a href="/admin/work_types" title="Work Types" class="btn btn-primary">Work Types</a>
 				<a href="/admin/works" title="Works" class="btn btn-primary">Works</a>

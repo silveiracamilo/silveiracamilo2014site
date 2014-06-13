@@ -2,19 +2,24 @@
 
 @section('main')
 
-
+@if ($errors->any())
+    <ul>
+        {{ implode('', $errors->all('<li class="error" style="color:#FFF;">:message</li>')) }}
+    </ul>
+@endif
 
 {{ Form::open(array('class'=>'form-style', 'files'=>true, 'route' => 'admin.works.store')) }}
+   
     <h2>Create Work</h2>
 	
-    {{ Form::label('work_type_id', 'Work Type Id:') }}
-    {{ Form::select('Work Type Id', $selectWorkTypes) }}
+    {{ Form::label('work_type_id', 'Work Type:') }}
+    {{ Form::select('work_type_id', $selectWorkTypes) }}
 
     {{ Form::label('title', 'Title:') }}
     {{ Form::text('title') }}
 
     {{ Form::label('description', 'Description:') }}
-    {{ Form::textarea('description') }}
+    {{ Form::textarea('description', null, array('style'=>'width:100%;')) }}
 
     {{ Form::label('date', 'Date:') }}
     {{ Form::text('date') }}
@@ -34,14 +39,14 @@
     {{ Form::label('path', 'Path:') }}
     {{ Form::text('path') }}
 
-    {{ Form::label('video', 'Video:') }}
-    {{ Form::file('video') }}
-
     {{ Form::label('thumb', 'Thumb:') }}
     {{ Form::file('thumb') }}
 
     {{ Form::label('swf', 'Swf:') }}
     {{ Form::file('swf') }}
+
+    {{ Form::label('video', 'Video:') }}
+    {{ Form::file('video') }}
 
     {{ Form::label('swf_width', 'Swf_width:') }}
     {{ Form::input('number', 'swf_width') }}
@@ -51,13 +56,8 @@
 
     </br></br>
 	{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
-{{ Form::close() }}
 
-@if ($errors->any())
-	<ul>
-		{{ implode('', $errors->all('<li class="error">:message</li>')) }}
-	</ul>
-@endif
+{{ Form::close() }}
 
 @stop
 

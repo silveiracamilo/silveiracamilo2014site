@@ -6,7 +6,7 @@
 
 <p>{{ link_to_route('admin.work_pictures.index', 'Return to all work_pictures') }}</p>
 
-<table class="table table-striped table-bordered">
+<table class="table table-hover table-bordered" style="background-color:#EEE;">
 	<thead>
 		<tr>
 			<th>Work_id</th>

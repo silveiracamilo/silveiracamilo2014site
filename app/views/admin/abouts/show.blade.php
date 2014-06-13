@@ -6,7 +6,7 @@
 
 <p>{{ link_to_route('admin.abouts.index', 'Return to all abouts') }}</p>
 
-<table class="table table-striped table-bordered">
+<table class="table table-hover table-bordered" style="background-color:#EEE;">
 	<thead>
 		<tr>
 			<th>Title</th>

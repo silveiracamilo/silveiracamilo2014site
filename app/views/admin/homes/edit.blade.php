@@ -2,6 +2,12 @@
 
 @section('main')
 
+@if ($errors->any())
+	<ul>
+		{{ implode('', $errors->all('<li class="error" style="color:#FFF;">:message</li>')) }}
+	</ul>
+@endif
+
 {{ Form::model($home, array('class'=>'form-style', 'method' => 'PATCH', 'route' => array('admin.homes.update', $home->id))) }}
 	<h2>Edit Home</h2>
 	
@@ -16,11 +22,5 @@
 	{{ link_to_route('admin.homes.index', 'Cancel', null, array('class' => 'btn')) }}
 		
 {{ Form::close() }}
-
-@if ($errors->any())
-	<ul>
-		{{ implode('', $errors->all('<li class="error">:message</li>')) }}
-	</ul>
-@endif
 
 @stop

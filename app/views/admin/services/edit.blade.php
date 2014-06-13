@@ -2,35 +2,26 @@
 
 @section('main')
 
-<h1>Edit Service</h1>
-{{ Form::model($service, array('method' => 'PATCH', 'route' => array('admin.services.update', $service->id))) }}
-	<ul>
-        <li>
-            {{ Form::label('name', 'Name:') }}
-            {{ Form::text('name') }}
-        </li>
-
-        <li>
-            {{ Form::label('description', 'Description:') }}
-            {{ Form::textarea('description') }}
-        </li>
-
-        <li>
-            {{ Form::label('image', 'Image:') }}
-            {{ Form::text('image') }}
-        </li>
-
-		<li>
-			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-			{{ link_to_route('admin.services.show', 'Cancel', $service->id, array('class' => 'btn')) }}
-		</li>
-	</ul>
-{{ Form::close() }}
-
 @if ($errors->any())
-	<ul>
-		{{ implode('', $errors->all('<li class="error">:message</li>')) }}
-	</ul>
+    <ul>
+        {{ implode('', $errors->all('<li class="error" style="color:#FFF;">:message</li>')) }}
+    </ul>
 @endif
+
+{{ Form::model($service, array('class'=>'form-style', 'files'=>true, 'method' => 'PATCH', 'route' => array('admin.services.update', $service->id))) }}
+	<h2>Edit Service</h2>
+
+    {{ Form::label('name', 'Name:') }}
+    {{ Form::text('name') }}
+
+    {{ Form::label('description', 'Description:') }}
+    {{ Form::textarea('description', null, array('style'=>'width:100%;')) }}
+
+    {{ Form::label('image', 'Image:') }}
+    {{ Form::file('image') }}
+
+    </br></br>
+    {{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
+{{ Form::close() }}
 
 @stop

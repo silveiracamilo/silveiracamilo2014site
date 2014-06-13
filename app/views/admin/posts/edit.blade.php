@@ -2,40 +2,31 @@
 
 @section('main')
 
-<h1>Edit Post</h1>
-{{ Form::model($post, array('method' => 'PATCH', 'route' => array('admin.posts.update', $post->id))) }}
-	<ul>
-        <li>
-            {{ Form::label('title', 'Title:') }}
-            {{ Form::text('title') }}
-        </li>
-
-        <li>
-            {{ Form::label('description', 'Description:') }}
-            {{ Form::text('description') }}
-        </li>
-
-        <li>
-            {{ Form::label('post', 'Post:') }}
-            {{ Form::textarea('post') }}
-        </li>
-
-        <li>
-            {{ Form::label('image', 'Image:') }}
-            {{ Form::text('image') }}
-        </li>
-
-		<li>
-			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-			{{ link_to_route('admin.posts.show', 'Cancel', $post->id, array('class' => 'btn')) }}
-		</li>
-	</ul>
-{{ Form::close() }}
-
 @if ($errors->any())
-	<ul>
-		{{ implode('', $errors->all('<li class="error">:message</li>')) }}
-	</ul>
+    <ul>
+        {{ implode('', $errors->all('<li class="error" style="color:#FFF;">:message</li>')) }}
+    </ul>
 @endif
+
+{{ Form::model($post, array('class'=>'form-style', 'files'=>true, 'method' => 'PATCH', 'route' => array('admin.posts.update', $post->id))) }}
+	<h2>Edit Post</h2>
+
+    {{ Form::label('title', 'Title:') }}
+    {{ Form::text('title') }}
+
+    {{ Form::label('description', 'Description:') }}
+    {{ Form::text('description') }}
+
+    {{ Form::label('post', 'Post:') }}
+    {{ Form::textarea('post', null, array('style'=>'width:100%;')) }}
+
+    {{ Form::label('image', 'Image:') }}
+    {{ Form::file('image') }}
+
+    </br></br>
+	{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
+	{{ link_to_route('admin.posts.show', 'Cancel', $post->id, array('class' => 'btn')) }}
+
+{{ Form::close() }}
 
 @stop

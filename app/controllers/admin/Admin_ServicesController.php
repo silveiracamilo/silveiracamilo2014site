@@ -47,7 +47,9 @@ class Admin_ServicesController extends Admin_BaseController {
 		$validation = Validator::make($input, Service::$rules);
 
 		if ($validation->passes())
-		{
+		{			
+			$input['image'] = $this->uploadImage($input);
+
 			$this->service->create($input);
 
 			return Redirect::route('admin.services.index');
@@ -103,7 +105,15 @@ class Admin_ServicesController extends Admin_BaseController {
 
 		if ($validation->passes())
 		{
+			$oldNameImage = $input['image'];
+			$input['image'] = $this->uploadImage($input);
+
 			$service = $this->service->find($id);
+
+			if($oldNameImage!=$input['image']) {
+				File::delete(public_path().$service->image);
+			}
+
 			$service->update($input);
 
 			return Redirect::route('admin.services.show', $id);
@@ -123,9 +133,28 @@ class Admin_ServicesController extends Admin_BaseController {
 	 */
 	public function destroy($id)
 	{
-		$this->service->find($id)->delete();
+		$service = $this->service->find($id);
+
+		File::delete(public_path().$service->image);
+
+		$service->delete();
 
 		return Redirect::route('admin.services.index');
+	}
+
+	protected function uploadImage($input){
+		$name = 'image';
+		if (Input::hasFile($name))
+		{
+			$name_file = Help::getNewName(Input::file($name)->getClientOriginalExtension());
+			$path = '/uploads/services/';
+		    
+		    Input::file($name)->move(public_path().$path, $name_file);
+
+		    return $path.$name_file;
+		}
+
+		return $input[$name];
 	}
 
 }

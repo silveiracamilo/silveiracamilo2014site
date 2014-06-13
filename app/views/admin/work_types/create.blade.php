@@ -2,6 +2,12 @@
 
 @section('main')
 
+@if ($errors->any())
+	<ul>
+		{{ implode('', $errors->all('<li class="error" style="color:#FFF;">:message</li>')) }}
+	</ul>
+@endif
+
 {{ Form::open(array('class'=>'form-style', 'route' => 'admin.work_types.store')) }}
 	<h2>Create Work_type</h2>
 
@@ -10,12 +16,6 @@
 
 	{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
 {{ Form::close() }}
-
-@if ($errors->any())
-	<ul>
-		{{ implode('', $errors->all('<li class="error">:message</li>')) }}
-	</ul>
-@endif
 
 @stop
 

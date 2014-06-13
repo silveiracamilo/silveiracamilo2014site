@@ -47,6 +47,8 @@ class Admin_PostsController extends \BaseController {
 
 		if ($validation->passes())
 		{
+			$input['image'] = $this->uploadImage($input);
+			
 			$this->post->create($input);
 
 			return Redirect::route('admin.posts.index');
@@ -102,7 +104,15 @@ class Admin_PostsController extends \BaseController {
 
 		if ($validation->passes())
 		{
+			$oldNameImage = $input['image'];
+			$input['image'] = $this->uploadImage($input);
+
 			$post = $this->post->find($id);
+
+			if($oldNameImage!=$input['image']) {
+				File::delete(public_path().$post->image);
+			}
+
 			$post->update($input);
 
 			return Redirect::route('admin.posts.show', $id);
@@ -122,9 +132,28 @@ class Admin_PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		$this->post->find($id)->delete();
+		$post = $this->post->find($id);
+
+		File::delete(public_path().$post->image);
+
+		$post->delete();
 
 		return Redirect::route('admin.posts.index');
+	}
+
+	protected function uploadImage($input){
+		$name = 'image';
+		if (Input::hasFile($name))
+		{
+			$name_file = Help::getNewName(Input::file($name)->getClientOriginalExtension());
+			$path = '/uploads/posts/';
+		    
+		    Input::file($name)->move(public_path().$path, $name_file);
+
+		    return $path.$name_file;
+		}
+
+		return $input[$name];
 	}
 
 }
