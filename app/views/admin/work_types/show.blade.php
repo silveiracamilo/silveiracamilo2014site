@@ -2,7 +2,7 @@
 
 @section('main')
 
-<h1>Show Work_type</h1>
+<h1>Show Work type</h1>
 
 <p>{{ link_to_route('admin.work_types.index', 'Return to all work_types') }}</p>
 

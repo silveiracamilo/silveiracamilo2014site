@@ -31,9 +31,9 @@ class Admin_Work_picturesController extends Admin_BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create($work_id)
 	{
-		return View::make('admin.work_pictures.create');
+		return View::make('admin.work_pictures.create', compact('work_id'));
 	}
 
 	/**
@@ -48,12 +48,14 @@ class Admin_Work_picturesController extends Admin_BaseController {
 
 		if ($validation->passes())
 		{
+			$input['picture'] = $this->uploadFile($input, 'picture');
+
 			$this->work_picture->create($input);
 
-			return Redirect::route('admin.work_pictures.index');
+			return Redirect::to('/admin/works/'.$input["work_id"]."#pictures");
 		}
 
-		return Redirect::route('admin.work_pictures.create')
+		return Redirect::to('/admin/work_pictures/create/'.$input["work_id"])
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'There were validation errors.');
@@ -84,7 +86,7 @@ class Admin_Work_picturesController extends Admin_BaseController {
 
 		if (is_null($work_picture))
 		{
-			return Redirect::route('admin.work_pictures.index');
+			return Redirect::route('admin.works.index');
 		}
 
 		return View::make('admin.work_pictures.edit', compact('work_picture'));
@@ -104,9 +106,18 @@ class Admin_Work_picturesController extends Admin_BaseController {
 		if ($validation->passes())
 		{
 			$work_picture = $this->work_picture->find($id);
+
+			if (Input::hasFile('pictureN')) {
+				$input['picture'] = $this->uploadFile($input, 'pictureN');
+				
+				if($work_picture->picture!=null) $this->deleteFile($work_picture->picture);			
+			}
+
+			unset($input['pictureN']);
+
 			$work_picture->update($input);
 
-			return Redirect::route('admin.work_pictures.show', $id);
+			return Redirect::to('/admin/works/'.$input["work_id"]."#pictures");
 		}
 
 		return Redirect::route('admin.work_pictures.edit', $id)
@@ -123,9 +134,33 @@ class Admin_Work_picturesController extends Admin_BaseController {
 	 */
 	public function destroy($id)
 	{
-		$this->work_picture->find($id)->delete();
+		$work_picture = $this->work_picture->find($id);
 
-		return Redirect::route('admin.work_pictures.index');
+		File::delete(public_path().$work_picture->picture);
+		$work_id = $work_picture->work_id;
+		$work_picture->delete();
+
+		return Redirect::to('/admin/works/'.$work_id."#pictures");
+	}
+
+	protected function uploadFile($input, $name){
+		if (Input::hasFile($name))
+		{
+			$extension = Input::file($name)->getClientOriginalExtension();
+			$na = explode(".", Input::file($name)->getClientOriginalName());
+			$name_file = $na[0].str_random(4).".".$extension;
+			$path = '/uploads/work_pictures/'.$extension."/";
+		    
+		    Input::file($name)->move(public_path().$path, $name_file);
+
+		    return $path.$name_file;
+		}
+
+		return $input[$name];
+	}
+
+	protected function deleteFile($file_path){
+		File::delete(public_path().$file_path);
 	}
 
 }

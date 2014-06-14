@@ -17,8 +17,10 @@
     {{ Form::label('description', 'Description:') }}
     {{ Form::textarea('description', null, array('style'=>'width:100%;')) }}
 
-    {{ Form::label('picture', 'Picture:') }}
-    {{ Form::file('picture') }}
+    {{ Form::label('pictureN', 'Picture:') }}
+    {{ Form::file('pictureN') }}
+
+    {{ Form::hidden('picture') }}
 	
     </br></br>
     {{ Form::submit('Update', array('class' => 'btn btn-info')) }}

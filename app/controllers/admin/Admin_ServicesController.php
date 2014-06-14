@@ -48,7 +48,7 @@ class Admin_ServicesController extends Admin_BaseController {
 
 		if ($validation->passes())
 		{			
-			$input['image'] = $this->uploadImage($input);
+			$input['image'] = $this->uploadImage($input, 'image');
 
 			$this->service->create($input);
 
@@ -105,14 +105,15 @@ class Admin_ServicesController extends Admin_BaseController {
 
 		if ($validation->passes())
 		{
-			$oldNameImage = $input['image'];
-			$input['image'] = $this->uploadImage($input);
-
 			$service = $this->service->find($id);
 
-			if($oldNameImage!=$input['image']) {
-				File::delete(public_path().$service->image);
+			if (Input::hasFile('imageN')) {
+				$input['image'] = $this->uploadImage($input, 'imageN');
+				
+				if($service->image!=null) $this->deleteFile($service->image);			
 			}
+
+			unset($input['imageN']);
 
 			$service->update($input);
 
@@ -142,8 +143,7 @@ class Admin_ServicesController extends Admin_BaseController {
 		return Redirect::route('admin.services.index');
 	}
 
-	protected function uploadImage($input){
-		$name = 'image';
+	protected function uploadImage($input, $name){
 		if (Input::hasFile($name))
 		{
 			$name_file = Help::getNewName(Input::file($name)->getClientOriginalExtension());
@@ -155,6 +155,10 @@ class Admin_ServicesController extends Admin_BaseController {
 		}
 
 		return $input[$name];
+	}
+
+	protected function deleteFile($file_path){
+		File::delete(public_path().$file_path);
 	}
 
 }

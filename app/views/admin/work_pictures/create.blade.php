@@ -13,7 +13,7 @@
     <h2>Create Work_picture</h2>
 
     {{ Form::label('work_id', 'Work_id:') }}
-    {{ Form::input('number', 'work_id') }}
+    {{ Form::text('work_id', $work_id) }}
 
     {{ Form::label('title', 'Title:') }}
     {{ Form::text('title') }}

@@ -30,7 +30,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 	Route::resource('users', 'Admin_UsersController');
 	Route::resource('homes', 'Admin_HomesController');
 	Route::resource('works', 'Admin_WorksController');
-	Route::resource('work_pictures', 'Admin_Work_picturesController');
+	Route::any('work_pictures/create/{work_id}', 'Admin_Work_picturesController@create');
+	Route::resource('work_pictures', 'Admin_Work_picturesController');	
 	Route::resource('work_types', 'Admin_Work_typesController');
 	Route::resource('abouts', 'Admin_AboutsController');
 	Route::resource('services', 'Admin_ServicesController');

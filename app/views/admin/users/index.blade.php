@@ -10,6 +10,7 @@
 	<table class="table table-hover table-bordered" style="background-color:#EEE;">
 		<thead>
 			<tr>
+				<th>Id</th>
 				<th>Name</th>
 				<th>Username</th>
 				<th>Email</th>
@@ -20,6 +21,7 @@
 		<tbody>
 			@foreach ($users as $user)
 				<tr>
+					<td>{{{ $user->id }}}</td>
 					<td>{{{ $user->name }}}</td>
 					<td>{{{ $user->username }}}</td>
 					<td>{{{ $user->email }}}</td>

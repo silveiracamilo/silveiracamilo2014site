@@ -10,6 +10,7 @@
 	<table class="table table-hover table-bordered" style="background-color:#EEE;">
 		<thead>
 			<tr>
+				<th>Id</th>
 				<th>Title</th>
 				<th>Description</th>
 				<th>Post</th>
@@ -20,6 +21,7 @@
 		<tbody>
 			@foreach ($posts as $post)
 				<tr>
+					<td>{{{ $post->id }}}</td>
 					<td>{{{ $post->title }}}</td>
 					<td>{{{ $post->description }}}</td>
 					<td>{{{ $post->post }}}</td>

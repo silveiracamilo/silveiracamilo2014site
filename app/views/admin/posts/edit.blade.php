@@ -20,8 +20,10 @@
     {{ Form::label('post', 'Post:') }}
     {{ Form::textarea('post', null, array('style'=>'width:100%;')) }}
 
-    {{ Form::label('image', 'Image:') }}
-    {{ Form::file('image') }}
+    {{ Form::label('imageN', 'Image:') }}
+    {{ Form::file('imageN') }}
+
+    {{ Form::hidden('image') }}
 
     </br></br>
 	{{ Form::submit('Update', array('class' => 'btn btn-info')) }}

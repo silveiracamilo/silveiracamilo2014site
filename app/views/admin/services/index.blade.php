@@ -10,6 +10,7 @@
 	<table class="table table-hover table-bordered" style="background-color:#EEE;">
 		<thead>
 			<tr>
+				<th>Id</th>
 				<th>Name</th>
 				<th>Description</th>
 				<th>Image</th>
@@ -19,6 +20,7 @@
 		<tbody>
 			@foreach ($services as $service)
 				<tr>
+					<td>{{{ $service->id }}}</td>
 					<td>{{{ $service->name }}}</td>
 					<td>{{{ $service->description }}}</td>
 					<td><img src="{{{ $service->image }}}"/></td>

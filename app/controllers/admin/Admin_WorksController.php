@@ -22,7 +22,7 @@ class Admin_WorksController extends Admin_BaseController {
 	public function index()
 	{
 		$works = $this->work->all();
-
+		//var_dump(Work_picture::where('work_id', '=', 1));
 		return View::make('admin.works.index', compact('works'));
 	}
 
@@ -89,7 +89,7 @@ class Admin_WorksController extends Admin_BaseController {
 		$work = $this->work->find($id);
 
 		if (is_null($work))
-		{
+		{			
 			return Redirect::route('admin.works.index');
 		}
 
@@ -112,6 +112,29 @@ class Admin_WorksController extends Admin_BaseController {
 		if ($validation->passes())
 		{
 			$work = $this->work->find($id);
+
+			if(Input::hasFile('thumbN')) {
+				$input['thumb'] = $this->uploadFile($input, 'thumbN');
+
+				$this->deleteFile($work->thumb);
+			} 
+
+			if(Input::hasFile('swfN')) {
+				$input['swf'] = $this->uploadFile($input, 'swfN');
+
+				if($work->swf!=null) $this->deleteFile($work->swf);
+			}
+
+			if(Input::hasFile('videoN')){
+				$input['video'] = $this->uploadFile($input, 'videoN');
+
+				if($work->video!=null) $this->deleteFile($work->video);
+			}
+
+			unset($input['thumbN']);
+			unset($input['swfN']);
+			unset($input['videoN']);
+
 			$work->update($input);
 
 			return Redirect::route('admin.works.show', $id);
@@ -131,13 +154,18 @@ class Admin_WorksController extends Admin_BaseController {
 	 */
 	public function destroy($id)
 	{
-		$this->work->find($id)->delete();
-
 		$work = $this->work->find($id);
 
-		File::delete(public_path().$work->thumb);
-		if($work->swf!=null) File::delete(public_path().$work->swf);
-		if($work->video!=null) File::delete(public_path().$work->video);
+		$this->deleteFile($work->thumb);
+		if($work->swf!=null) $this->deleteFile($work->swf);
+		if($work->video!=null) $this->deleteFile($work->video);
+
+		$work_pictures = Work_picture::where('work_id', '=', $work->id)->get();
+
+		foreach ($work_pictures as $work_picture) {
+			$this->deleteFile($work_picture->picture);
+			$work_picture->delete();
+		}
 
 		$work->delete();
 
@@ -159,7 +187,8 @@ class Admin_WorksController extends Admin_BaseController {
 		if (Input::hasFile($name))
 		{
 			$extension = Input::file($name)->getClientOriginalExtension();
-			$name_file = Input::file($name)->getClientOriginalExtension().str_random(4).".".$extension;
+			$na = explode(".", Input::file($name)->getClientOriginalName());
+			$name_file = $na[0].str_random(4).".".$extension;
 			$path = '/uploads/works/'.$extension."/";
 		    
 		    Input::file($name)->move(public_path().$path, $name_file);
@@ -168,6 +197,10 @@ class Admin_WorksController extends Admin_BaseController {
 		}
 
 		return $input[$name];
+	}
+
+	protected function deleteFile($file_path){
+		File::delete(public_path().$file_path);
 	}
 
 }

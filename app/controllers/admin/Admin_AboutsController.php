@@ -48,7 +48,7 @@ class Admin_AboutsController extends Admin_BaseController {
 
 		if ($validation->passes())
 		{
-			$input['picture'] = $this->uploadPicture($input);
+			$input['picture'] = $this->uploadPicture($input, "picture");
 
 			$this->about->create($input);
 
@@ -105,9 +105,14 @@ class Admin_AboutsController extends Admin_BaseController {
 
 		if ($validation->passes())
 		{
-			$input['picture'] = $this->uploadPicture($input);
-
 			$about = $this->about->find($id);
+
+			if (Input::hasFile('pictureN')) {
+				$input['picture'] = $this->uploadPicture($input, "pictureN");
+			}
+
+			unset($input['pictureN']);
+
 			$about->update($input);
 
 			return Redirect::to('admin/abouts');
@@ -132,20 +137,18 @@ class Admin_AboutsController extends Admin_BaseController {
 		return Redirect::route('admin.abouts.index');
 	}
 
-	protected function uploadPicture($input){
-		if (Input::hasFile('picture'))
+	protected function uploadPicture($input, $name){
+		if (Input::hasFile($name))
 		{
-			$name_file = 'picture_about.'.Input::file('picture')->getClientOriginalExtension();
+			$name_file = 'picture_about.'.Input::file($name)->getClientOriginalExtension();
 			$path = '/uploads/abouts/';
 		    
-		    Input::file('picture')->move(public_path().$path, $name_file);
-
-		    //$input['picture'] = $path.$name_file;
+		    Input::file($name)->move(public_path().$path, $name_file);
 
 		    return $path.$name_file;
 		}
 
-		return $input['picture'];
+		return $input[$name];
 	}
 
 }

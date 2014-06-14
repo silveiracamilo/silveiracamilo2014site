@@ -9,7 +9,7 @@
 @endif
 
 {{ Form::model($work_type, array('class'=>'form-style', 'method' => 'PATCH', 'route' => array('admin.work_types.update', $work_type->id))) }}
-    <h2>Edit Work_type</h2>
+    <h2>Edit Work type</h2>
 
     {{ Form::label('name', 'Name:') }}
     {{ Form::text('name') }}

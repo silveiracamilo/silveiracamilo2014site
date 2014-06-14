@@ -18,8 +18,10 @@
     {{ Form::label('title', 'Title:') }}
     {{ Form::text('title') }}
 
-    {{ Form::label('picture', 'Picture:') }}
-    {{ Form::file('picture') }}
+    {{ Form::label('pictureN', 'Picture:') }}
+    {{ Form::file('pictureN') }}
+
+    {{ Form::hidden('picture') }}
 
     </br></br>
 	{{ Form::submit('Update', array('class' => 'btn btn-info')) }}

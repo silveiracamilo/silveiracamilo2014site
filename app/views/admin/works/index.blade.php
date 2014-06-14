@@ -10,42 +10,32 @@
 	<table class="table table-hover table-bordered" style="background-color:#EEE;">
 		<thead>
 			<tr>
+				<th>Id</th>
 				<th>Work type</th>
 				<th>Title</th>
-				<th>Description</th>
 				<th>Date</th>
-				<th>Technologies</th>
-				<th>Produced_in</th>
-				<th>Produced_link</th>
-				<th>Link</th>
 				<th>Path</th>
-				<th>Video</th>
 				<th>Thumb</th>
-				<th>Swf</th>
-				<th>Swf_width</th>
-				<th>Swf_height</th>
+				<th>Gallery Pictures</th>				
 			</tr>
 		</thead>
 
 		<tbody>
 			@foreach ($works as $work)
 				<tr>
+					<td>{{{ $work->id }}}</td>
 					<td>{{{ $work->work_type()->name }}}</td>
 					<td>{{{ $work->title }}}</td>
-					<td>{{{ $work->description }}}</td>
 					<td>{{{ $work->date }}}</td>
-					<td>{{{ $work->technologies }}}</td>
-					<td>{{{ $work->produced_in }}}</td>
-					<td>{{{ $work->produced_link }}}</td>
-					<td>{{{ $work->link }}}</td>
 					<td>{{{ $work->path }}}</td>
-					<td>{{{ $work->video }}}</td>
-					<td>{{{ $work->thumb }}}</td>
-					<td>{{{ $work->swf }}}</td>
-					<td>{{{ $work->swf_width }}}</td>
-					<td>{{{ $work->swf_height }}}</td>
-                    <td>{{ link_to_route('admin.works.edit', 'Edit', array($work->id), array('class' => 'btn btn-info')) }}</td>
-                    <td>
+					<td style="text-align:center;"><img src="{{{ $work->thumb }}}"/></td>
+					@if ($work->work_pictures()->count())
+					<td><a class="btn btn-success" href="{{{ '/admin/works/'.$work->id.'#pictures' }}}">View pictures</a></td>					
+					@else
+					<td><a class="btn btn-success" href="{{ url('admin/work_pictures/create', $work->id) }}">Add new picture</a></td>
+					@endif
+                    <td width="5%">{{ link_to_route('admin.works.edit', 'Edit', array($work->id), array('class' => 'btn btn-info')) }}</td>
+                    <td width="5%">
                         {{ Form::open(array('method' => 'DELETE', 'route' => array('admin.works.destroy', $work->id))) }}
                             {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
                         {{ Form::close() }}

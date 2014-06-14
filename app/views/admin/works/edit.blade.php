@@ -13,7 +13,7 @@
     <h2>Edit Work</h2>    
 
     {{ Form::label('work_type_id', 'Work Type:') }}
-    {{ Form::select('Work Type Id', $selectWorkTypes) }}
+    {{ Form::select('work_type_id', $selectWorkTypes) }}
 
     {{ Form::label('title', 'Title:') }}
     {{ Form::text('title') }}
@@ -39,25 +39,31 @@
     {{ Form::label('path', 'Path:') }}
     {{ Form::text('path') }}
 
-    {{ Form::label('thumb', 'Thumb:') }}
-    {{ Form::file('thumb') }}
+    {{ Form::label('thumbN', 'Thumb:') }}
+    {{ Form::file('thumbN') }}
 
-    {{ Form::label('swf', 'Swf:') }}
-    {{ Form::file('swf') }}
+    {{ Form::label('swfN', 'Swf:') }}
+    {{ Form::file('swfN') }}
 
-    {{ Form::label('video', 'Video:') }}
-    {{ Form::file('video') }}
+    {{ Form::label('videoN', 'Video:') }}
+    {{ Form::file('videoN') }}
 
     {{ Form::label('swf_width', 'Swf_width:') }}
     {{ Form::input('number', 'swf_width') }}
 
     {{ Form::label('swf_height', 'Swf_height:') }}
     {{ Form::input('number', 'swf_height') }}
+
+    {{ Form::hidden('thumb') }}
+    {{ Form::hidden('swf') }}
+    {{ Form::hidden('video') }}
 	
     </br></br>
     {{ Form::submit('Update', array('class' => 'btn btn-info')) }}
 	{{ link_to_route('admin.works.show', 'Cancel', $work->id, array('class' => 'btn')) }}
-		
+	
+    @include('admin/works.pictures')
+    
 {{ Form::close() }}
 
 @stop

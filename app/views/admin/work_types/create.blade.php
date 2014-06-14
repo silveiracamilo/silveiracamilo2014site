@@ -9,7 +9,7 @@
 @endif
 
 {{ Form::open(array('class'=>'form-style', 'route' => 'admin.work_types.store')) }}
-	<h2>Create Work_type</h2>
+	<h2>Create Work type</h2>
 
     {{ Form::label('name', 'Name:') }}
     {{ Form::text('name') }}
