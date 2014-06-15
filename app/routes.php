@@ -13,10 +13,16 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('home');
 });
 
-Route::get('/admin', function()
+Route::get('api/home', 'ApiController@home');
+Route::get('api/works', 'ApiController@works');
+Route::get('api/work/{path}', 'ApiController@work');
+Route::get('api/about', 'ApiController@about');
+Route::get('api/services', 'ApiController@services');
+
+Route::get('admin', function()
 {
 	return Redirect::to('admin/login');
 });

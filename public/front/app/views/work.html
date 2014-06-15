@@ -1,0 +1,76 @@
+<link href="/front/app/css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css">
+<script src="/front/app/js/libs/jquery.lightbox-0.5.min.js"></script>
+<script src="/front/app/js/libs/swfobject.js"></script>
+
+<div id="title_page">
+  <h1 id="titulo">Trabalho</h1>
+</div>
+
+<div id="content">
+  <div id="trabalho_titulo">{{work.title}}</div>
+  <div id="trabalho">
+    <p>data: {{work.date}}</p>
+    <p>tecnologias: {{work.technologies}}</p>
+    <p>produzido para: <a href="{{work.produced_link}}" target="_blank">{{work.produced_in}}</a></p>
+    <p ng-if="work.link">link: <a href="{{work.link}}" target="_blank">{{work.link}}</a></p>
+    <h5 ng-if="work.link">imagens</h5>
+    <div id="myCarousel" class="carousel slide" ng-if="work.link">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li ng-repeat="work_picture in work_pictures" data-target="#myCarousel" data-slide-to="{{1}}"></li><!-- aqui tem -->
+      </ol>
+      
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        <div ng-repeat="work_picture in work_pictures" class="{{ 'active' }}item"> <!-- aqui tem -->
+          <div class='inner-item'>
+          <a href="{{work_picture.picture}}" title="{{work_picture.title}}">
+              <img src="{{work_picture.picture}}"/>
+          </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+
+    
+      <div id="flashcontent"></div>
+      <script type="text/javascript" defer="defer">
+        var pathSWF   = "work.swf";
+        var flashvars     = {};
+        var attributes    = {style:"margin-left:<?php echo ((730 - {{work.swf_width}}/2);?>px; margin-top:25px;"};
+        var params    = {};
+        var version   = "10";
+
+        params.allowscriptaccess    = "always";
+        params.menu           = "false";
+        params.scale          = "noscale";
+
+        if (swfobject.hasFlashPlayerVersion(version)) {
+          swfobject.embedSWF(pathSWF, "flashcontent", "{{work.swf_width}}", "{{work.swf_height}}", version, false, flashvars, params, attributes);
+        } else {
+          document.getElementById("flashcontent").innerHTML = 'Para voce visualizar este trabalho voce precisa da versao mais recente do Flash Player. Faca o download abaixo.<br><a href="http://get.adobe.com/br/flashplayer/" alt="Download Flash Player" title="Download Flash Player" target="_blank"><img src="http://www.adobe.com/images/shared/download_buttons/get_adobe_flash_player.png"></a>';
+        }
+      </script>
+
+    <a ng-if="work.link" href="{{work.link}}" target="_blank" class="link_box"><div id="acesse">acesse</div></a>
+
+    <div id="fb-root" style="margin-top: 25px; margin-bottom: 50px;"></div>
+    <script src="http://connect.facebook.net/en_US/all.js#appId=241069989264345&amp;xfbml=1"></script>
+    <fb:like href="#/trabalho/{{work.path}}" send="true" width="720" show_faces="true" font=""></fb:like>
+    <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+    <fb:comments href="#/trabalho/{{work.path}}" num_posts="10" width="720"></fb:comments>
+  </div>
+  <a href="#/trabalhos" class="link_box_branco"><div class="voltar">voltar</div></a>
+</div>
+
+<!-- Ativando o jQuery lightBox plugin -->
+<script type="text/javascript">
+        $(function() {
+                $('#myCarousel .carousel-inner a').lightBox();
+                $('#myCarousel').carousel();
+        });
+</script> 

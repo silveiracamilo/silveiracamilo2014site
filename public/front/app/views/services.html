@@ -1,0 +1,10 @@
+<div id="title_page">
+	<h1 id="titulo">Serviços</h1>
+</div>
+
+<div id="content_servico">
+	<div ng-repeat="service in services" id="<?php echo array_shift($divs); ?>">
+		<div class="titulo_servico">{{service.name}}</div>
+		<div class="servico">{{service.description}}</div>
+	</div>
+</div>

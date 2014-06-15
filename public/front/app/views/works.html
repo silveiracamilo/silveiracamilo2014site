@@ -1,0 +1,28 @@
+<div id="title_page">
+	<h1 id="titulo">Trabalhos</h1>
+</div>
+
+<div id="content">
+	<h1>Feitos com carinho.</h1>
+	<h2>Fique a vontade, não tenho pressa.
+          Selecionei os meus melhores trabalhos, espero que goste.</h2>
+	
+	<div id="filtro_trabalhos">
+		<p>filtrar trabalhos</p>
+		<ul>
+			<li><a href class="link_comum">todos</a></li> 
+			<li ng-repeat="work_type in work_types">
+				<a href class="link_comum"> | {{work_type.name}}</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="trabalho" ng-repeat="work in works">		
+        <a href="#/trabalho/{{ work.path }}">
+        	<strong>{{work.path}} - {{work.date}} | {{work.work_type_name}}</strong>
+			<img src="{{work.thumb}}" width=730 height=107 title="{{work.title}}" alt="{{work.title}}"/>
+		</a>
+	</div>			
+    
+    <?php echo '<div class="pagination">'.$this->pagination->create_links().'</div>'; ?>
+</div>
