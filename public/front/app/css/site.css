@@ -74,6 +74,8 @@ html, body{
 	height:100%;
 	background-color:#1a1a1a;
         /*min-height: 100%;*/
+    /*display: none;*/
+    opacity: 0;
 }
 
 * { margin: 0; padding: 0; z-index: 1; }
@@ -807,4 +809,55 @@ CONTATO
 
 .carousel-caption p {
   margin-bottom: 0;
+}
+
+
+
+
+body span.ajax-loading {
+    display: none;
+    position: absolute;
+    top: 290px;
+    left: 50%;
+    margin-left: -14px;
+    width: 28px;
+    height: 28px;
+    background: url('/front/app/images/ajax-loader.gif') no-repeat;
+}
+body.loading span.ajax-loading {
+    display: block;
+}
+html>body>div#loader {
+    display: block;
+    position: absolute;
+    width: 259px;
+    height: 25px;
+    top: 50%;
+    left: 50%;
+    margin-left: -129px;
+    margin-top: -12px;
+    z-index: 99;
+}
+html>body>div#loader span#bar {
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: #34488d;
+}
+html>body>div#loader span {
+    background: url('/front/app/images/logo_silveiracamilo.jpg') no-repeat;
+}
+
+.hide-opacity {
+    transition: all 1s linear;
+    opacity: 0;
+}
+.hide-width {
+    transition: all 1s linear;
+    width: 0px;
+}
+.show-opacity {
+    transition: all 1s linear;
+    opacity: 100%;
 }

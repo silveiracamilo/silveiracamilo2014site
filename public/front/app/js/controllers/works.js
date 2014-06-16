@@ -7,16 +7,18 @@
  * # WorksCtrl
  * Controller of the silveiracamilo
  */
-SC.controller('WorksCtrl', ['$scope', 'Server', function ($scope, server) {
-	log("WorksCtrl");
+//function initWorksCtrl(){
+	SC.controller('WorksCtrl', ['$scope', 'Server', function ($scope, server) {
+		log("WorksCtrl");
 
-	server.getApi('works').
-	success(function(data){
-		log(data);
-		$scope.works = data.works;
-		$scope.work_types = data.work_types;
-	}).
-	error(function(data){
-		log("Oopss!! Algum problema ocorreu, tente novamente mais tarde!");
-	});
-}]);
+		server.getApi('works').
+		success(function(data){
+			log(data);
+			$scope.works = data.works;
+			$scope.work_types = data.work_types;
+		}).
+		error(function(data){
+			log("Oopss!! Algum problema ocorreu, tente novamente mais tarde!");
+		});
+	}]);
+//}

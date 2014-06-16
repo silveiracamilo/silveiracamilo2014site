@@ -6,10 +6,12 @@
  * Factory of the silveiracamilo
  */
 
-SC.factory('Server', ['$http',function ($http) {
-	return {
-		getApi: function (name) {
-			return $http.get('/api/'+name);
-		}
-	};
-}]);
+//function initServer(){
+	SC.factory('Server', ['$http',function ($http) {
+		return {
+			getApi: function (name) {
+				return $http.get('/api/'+name);
+			}
+		};
+	}]);
+//}

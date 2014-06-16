@@ -7,15 +7,18 @@
  * # ServicesCtrl
  * Controller of the silveiracamilo
  */
-SC.controller('ServicesCtrl', ['$scope', 'Server', function ($scope, server) {
-	log("ServicesCtrl");
 
-	server.getApi('services').
-	success(function(data){
-		log(data);
-		$scope.services = data;
-	}).
-	error(function(data){
-		log("Oopss!! Algum problema ocorreu, tente novamente mais tarde!");
-	});
-}]);
+//function initServicesCtrl(){
+	SC.controller('ServicesCtrl', ['$scope', 'Server', function ($scope, server) {
+		log("ServicesCtrl");
+
+		server.getApi('services').
+		success(function(data){
+			log(data);
+			$scope.services = data;
+		}).
+		error(function(data){
+			log("Oopss!! Algum problema ocorreu, tente novamente mais tarde!");
+		});
+	}]);
+//}

@@ -13,8 +13,14 @@
   <meta name="author" content="Camilo da Silveira" />  
 
   <link href="/front/app/css/site.css" rel="stylesheet" type="text/css">
+
+  <script src="/front/app/js/libs/initLoader.js"></script>
 </head>
 <body ng-app="silveiracamilo">
+<span class="ajax-loading"></span>
+<div id="loader">
+  <span id="bar"></span>
+</div>
 <div id="root">
   <div id="header">
     <div id="header_content">
@@ -63,16 +69,6 @@
   </div>
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
 <script src="/front/app/js/app.js"></script>
-<script src="/front/app/js/factory/server.js"></script>
-<script src="/front/app/js/controllers/home.js"></script>
-<script src="/front/app/js/controllers/works.js"></script>
-<script src="/front/app/js/controllers/work.js"></script>
-<script src="/front/app/js/controllers/about.js"></script>
-<script src="/front/app/js/controllers/services.js"></script>
-<script src="/front/app/js/controllers/contact.js"></script>
-
 </body>
 </html>
