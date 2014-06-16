@@ -824,6 +824,9 @@ body span.ajax-loading {
     height: 28px;
     background: url('/front/app/images/ajax-loader.gif') no-repeat;
 }
+body span.ajax-loading .active{
+	display: block;
+}
 body.loading span.ajax-loading {
     display: block;
 }

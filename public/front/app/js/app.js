@@ -1,8 +1,16 @@
 'use strict';
 
-var SC, ngRouteUrl = "//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js";
+var SC, ngRouteUrl = "//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js", apiMapUrls = {};
+
+apiMapUrls['/'] = 'home';
+apiMapUrls['/trabalhos'] = 'works';
+apiMapUrls['/trabalho/:path'] = 'work/:path';
+apiMapUrls['/sobre'] = 'about';
+apiMapUrls['/servicos'] = 'services';
+
 InitLoader(document.getElementById('loader'), document.getElementById('bar'), 
 		   ["//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js",
+		    "//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.js",
 		   	ngRouteUrl,
 			"/front/app/js/factory/server.js",
 			"/front/app/js/controllers/home.js",
@@ -17,17 +25,29 @@ InitLoader(document.getElementById('loader'), document.getElementById('bar'),
 		   startApp);
 
 function startNgApp(){
-	SC = angular.module('silveiracamilo', ['ngRoute']);
+	SC = angular.module('silveiracamilo', ['ngRoute', 'ngAnimate']);
 
 	SC.config(['$routeProvider', function($routeProvider) {
-	  $routeProvider.when('/', {templateUrl: '/front/app/views/home.html', controller: 'HomeCtrl'});
-	  $routeProvider.when('/trabalhos', {templateUrl: '/front/app/views/works.html', controller: 'WorksCtrl'});
-	  $routeProvider.when('/trabalho/:path', {templateUrl: '/front/app/views/work.html', controller: 'WorkCtrl'});
-	  $routeProvider.when('/sobre', {templateUrl: '/front/app/views/about.html', controller: 'AboutCtrl'});
-	  $routeProvider.when('/servicos', {templateUrl: '/front/app/views/services.html', controller: 'ServicesCtrl'});
-	  $routeProvider.when('/contato', {templateUrl: '/front/app/views/contact.html', controller: 'ContactCtrl'});
-	  $routeProvider.otherwise({redirectTo: '/'});
+		$routeProvider.when('/', {templateUrl: '/front/app/views/home.html', controller: 'HomeCtrl', resolve:{ data:resolveData } });
+		$routeProvider.when('/trabalhos', {templateUrl: '/front/app/views/works.html', controller: 'WorksCtrl', resolve:{ data:resolveData }});
+		$routeProvider.when('/trabalho/:path', {templateUrl: '/front/app/views/work.html', controller: 'WorkCtrl', resolve:{ data:resolveData }});
+		$routeProvider.when('/sobre', {templateUrl: '/front/app/views/about.html', controller: 'AboutCtrl', resolve:{ data:resolveData }});
+		$routeProvider.when('/servicos', {templateUrl: '/front/app/views/services.html', controller: 'ServicesCtrl', resolve:{ data:resolveData }});
+		$routeProvider.when('/contato', {templateUrl: '/front/app/views/contact.html', controller: 'ContactCtrl'});
+		$routeProvider.otherwise({redirectTo: '/'});
 	}]);
+
+	SC.run(function($rootScope){
+		$rootScope.$on("$routeChangeStart", function (event, next, current) {
+	        $rootScope.loadingStatus = "active";
+	    });
+	    $rootScope.$on("$routeChangeSuccess", function (event, current, previous) {
+	        $rootScope.loadingStatus = "";
+	    });
+	    $rootScope.$on("$routeChangeError", function (event, current, previous, rejection) {
+	        $rootScope.loadingStatus = "";
+	    });
+	});
 }
 
 function startApp() {
@@ -36,6 +56,33 @@ function startApp() {
 		root.style.transition = 'all 1s linear';
 	    root.style.opacity =  '1';	
 	}, 1000);	
+}
+
+function resolveData($q, Server, $route){
+	var r = $route.current.$$route.originalPath;
+	var deferred = $q.defer();
+	var url = getUrlApi(r);
+	var path = $route.current.params.path;
+
+	if(url.indexOf(":path")>-1 && path)
+		url = url.replace(":path", path)
+
+	Server.getApi(url).
+	success(function(data){
+		log(data);
+		
+		deferred.resolve(data);
+	}).
+	error(function(data){
+		log("Oopss!! Algum problema ocorreu, tente novamente mais tarde!");
+		deferred.reject("Oopss!! Algum problema ocorreu, tente novamente mais tarde!");
+	});	
+
+	return deferred.promise;
+}
+
+function getUrlApi(route){
+	return apiMapUrls[route];
 }
 
 function log(value){

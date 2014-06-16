@@ -8,18 +8,10 @@
  * Controller of the silveiracamilo
  */
 
-//function initHomeCtrl(){
-	SC.controller('HomeCtrl', ['$scope', 'Server', function ($scope, server) {
-		log("HomeCtrl");
 
-		server.getApi('home').
-		success(function(data){
-			log(data);
-			$scope.home = data.home;
-			$scope.works = data.works;
-		}).
-		error(function(data){
-			log("Oopss!! Algum problema ocorreu, tente novamente mais tarde!");
-		});
-	}]);
-//}
+var HomeCtrl = SC.controller('HomeCtrl', ['$scope', 'data', function ($scope, data) {
+	log("HomeCtrl");
+
+	$scope.home = data.home;
+	$scope.works = data.works;	 	
+}]);

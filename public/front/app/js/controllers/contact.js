@@ -8,7 +8,7 @@
  * Controller of the silveiracamilo
  */
 //function initContactCtrl(){
-	SC.controller('ContactCtrl', function ($scope, $routeParams) {
+	SC.controller('ContactCtrl', function ($scope) {
 		log("ContactCtrl");
 	});
 //}

@@ -13,11 +13,12 @@
   <meta name="author" content="Camilo da Silveira" />  
 
   <link href="/front/app/css/site.css" rel="stylesheet" type="text/css">
+  <link href="/front/app/css/animations.css" rel="stylesheet" type="text/css">
 
   <script src="/front/app/js/libs/initLoader.js"></script>
 </head>
 <body ng-app="silveiracamilo">
-<span class="ajax-loading"></span>
+<span class="ajax-loading {{loadingStatus}}"></span>
 <div id="loader">
   <span id="bar"></span>
 </div>
@@ -25,11 +26,11 @@
   <div id="header">
     <div id="header_content">
       <div id="logo">
-        <a href="/"><img src="/front/app/images/logo_silveiracamilo.jpg" alt="silveiracamilo.com.br" title="silveiracamilo.com.br"/></a>
+        <a href="#/"><img src="/front/app/images/logo_silveiracamilo.jpg" alt="silveiracamilo.com.br" title="silveiracamilo.com.br"/></a>
       </div>
       <div id="menu">
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="#/">Home</a></li>
           <li class="separator_menu">*</li>
           <li><a href="#/trabalhos">Trabalhos</a></li>
           <li class="separator_menu">*</li>
@@ -43,7 +44,11 @@
     </div>
   </div>  
 
-  <div ng-view></div>
+  <div class="view-animate-container">
+    <div ng-view class="view-animate"></div>
+  </div>
+
+  <!--<div ng-view></div>-->
        
   <div id="footer">
     <div id="footer_content">
