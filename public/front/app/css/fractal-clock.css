@@ -2,10 +2,6 @@ canvas{
   outline: none;
 }
 
-#demo{
-  overflow: hidden;
-}
-
 #sketch{
   position: fixed;
   left: 0;

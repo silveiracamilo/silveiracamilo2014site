@@ -12,6 +12,7 @@ InitLoader(document.getElementById('loader'), document.getElementById('bar'),
 		   ["/front/app/js/libs/jquery-1.7.2.min.js",		    
 		    "//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js",
 		    "//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.js",		    
+		    "//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-sanitize.js",
 		   	ngRouteUrl,		   			   	
 		   	"/front/app/js/libs/processing-1.4.1.min.js",
 		   	"/front/app/js/modules/fractal-clock.js",
@@ -28,7 +29,7 @@ InitLoader(document.getElementById('loader'), document.getElementById('bar'),
 		   startApp);
 
 function startNgApp(){
-	SC = angular.module('silveiracamilo', ['ngRoute', 'ngAnimate', 'fractalClock']);
+	SC = angular.module('silveiracamilo', ['ngRoute', 'ngAnimate', 'ngSanitize', 'fractalClock']);
 
 	SC.config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/', {templateUrl: '/front/app/views/home.html', controller: 'HomeCtrl', resolve:{ data:resolveData } });

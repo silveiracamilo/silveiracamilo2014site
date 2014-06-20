@@ -14,12 +14,4 @@ SC.controller('ServicesCtrl', ['$scope', 'data', function ($scope, data) {
 
 	$scope.services = data;
 
-	/*server.getApi('services').
-	success(function(data){
-		log(data);
-		$scope.services = data;
-	}).
-	error(function(data){
-		log("Oopss!! Algum problema ocorreu, tente novamente mais tarde!");
-	});*/
 }]);

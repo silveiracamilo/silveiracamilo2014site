@@ -467,20 +467,11 @@ SERVI�OS
 	top:20px;
 }
 
-#content_servico #servico_left {
+#content_servico .servico_left {
 	width:238px;
 	float:left;	
+	margin-left: 12px;
 } 
-
-#content_servico #servico_right {
-	width:238px;
-	float:right;
-}
-
-#content_servico #servico_center {
-	width:238px;
-	margin:0 auto;
-}
 
 #content_servico .titulo_servico {
 	color:#000;

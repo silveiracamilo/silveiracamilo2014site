@@ -3,8 +3,10 @@
 </div>
 
 <div id="content_servico">
-	<div ng-repeat="service in services" id="<?php echo array_shift($divs); ?>">
-		<div class="titulo_servico">{{service.name}}</div>
-		<div class="servico">{{service.description}}</div>
+	<div ng-repeat="service in services">		
+		<div class="servico_left">
+			<div class="titulo_servico">{{service.name}}</div>
+			<div class="servico" ng-bind-html="service.description"></div>
+		</div>
 	</div>
 </div>
