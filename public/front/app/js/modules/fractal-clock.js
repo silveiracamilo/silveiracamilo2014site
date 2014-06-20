@@ -1,7 +1,7 @@
 (function() {
   "use strict";
   
-  var fractalClock = angular.module('fractalClock', ['ui.keypress']);
+  var fractalClock = angular.module('fractalClock', []);
 
   fractalClock.directive('processing', function() {
     return function(scope, iElement, iAttrs) {
