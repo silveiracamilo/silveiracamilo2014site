@@ -9,10 +9,14 @@ apiMapUrls['/sobre'] = 'about';
 apiMapUrls['/servicos'] = 'services';
 
 InitLoader(document.getElementById('loader'), document.getElementById('bar'), 
-		   ["//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js",
-		    "//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.js",
-		   	ngRouteUrl,
-			"/front/app/js/factory/server.js",
+		   ["/front/app/js/libs/jquery-1.7.2.min.js",		    
+		    "//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js",
+		    "//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.js",		    
+		   	ngRouteUrl,		   			   	
+		   	"/front/app/js/libs/processing-1.4.1.min.js",
+		   	"/front/app/js/libs/ui.keypress.js",
+		   	"/front/app/js/modules/fractal-clock.js",
+			"/front/app/js/factories/server.js",
 			"/front/app/js/controllers/home.js",
 			"/front/app/js/controllers/works.js",
 			"/front/app/js/controllers/work.js",
@@ -25,7 +29,7 @@ InitLoader(document.getElementById('loader'), document.getElementById('bar'),
 		   startApp);
 
 function startNgApp(){
-	SC = angular.module('silveiracamilo', ['ngRoute', 'ngAnimate']);
+	SC = angular.module('silveiracamilo', ['ngRoute', 'ngAnimate', 'fractalClock']);
 
 	SC.config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/', {templateUrl: '/front/app/views/home.html', controller: 'HomeCtrl', resolve:{ data:resolveData } });
@@ -59,22 +63,15 @@ function startApp() {
 }
 
 function resolveData($q, Server, $route){
-	var r = $route.current.$$route.originalPath;
-	var deferred = $q.defer();
-	var url = getUrlApi(r);
-	var path = $route.current.params.path;
+	var r = $route.current.$$route.originalPath, deferred = $q.defer(), url = getUrlApi(r), path = $route.current.params.path;
 
 	if(url.indexOf(":path")>-1 && path)
 		url = url.replace(":path", path)
 
-	Server.getApi(url).
-	success(function(data){
-		log(data);
-		
+	Server.getApi(url).success(function(data){
+		log(data);		
 		deferred.resolve(data);
-	}).
-	error(function(data){
-		log("Oopss!! Algum problema ocorreu, tente novamente mais tarde!");
+	}).error(function(data){
 		deferred.reject("Oopss!! Algum problema ocorreu, tente novamente mais tarde!");
 	});	
 
@@ -86,5 +83,5 @@ function getUrlApi(route){
 }
 
 function log(value){
-	console.log(value);
+	if(console.log) console.log(value);
 }

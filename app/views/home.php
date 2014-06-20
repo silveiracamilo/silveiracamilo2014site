@@ -14,6 +14,7 @@
 
   <link href="/front/app/css/site.css" rel="stylesheet" type="text/css">
   <link href="/front/app/css/animations.css" rel="stylesheet" type="text/css">
+  <link href="/front/app/css/fractal-clock.css" rel="stylesheet" type="text/css">
 
   <script src="/front/app/js/libs/initLoader.js"></script>
 </head>
@@ -72,6 +73,10 @@
     </div>  
     <div id="direitos">Copyright <?php echo date("Y"); ?> silveiracamilo.com.br</div>
   </div>
+
+  <div id="demo" ng-controller="FractalClockController">
+    <canvas id="sketch" processing="sketch" processing-fullscreen="clock.fullscreen" focus="clock.fullscreen" ui-keydown="{ esc: 'clock.fullscreen = false' }"></canvas>
+    </div>
 </div>
 
 <script src="/front/app/js/app.js"></script>
