@@ -21,6 +21,7 @@ Route::get('api/works', 'ApiController@works');
 Route::get('api/work/{path}', 'ApiController@work');
 Route::get('api/about', 'ApiController@about');
 Route::get('api/services', 'ApiController@services');
+Route::post('api/sendContact', 'ApiController@sendContact');
 
 Route::get('admin', function()
 {

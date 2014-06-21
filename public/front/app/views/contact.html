@@ -3,15 +3,36 @@
 </div>
 
 <div id="content_contato">
-	<form>
-	    <p>seu nome:</p>
-	    <input name='nome' type="text" class="inputContato"/>
-	    <p>seu email:</p>
-	    <input name='email' type="text" class="inputContato"/>
-	    <p>assunto:</p>
-	    <input name='assunto' type="text" class="inputContato"/>
-	    <p>mensagem:</p>
-	    <textarea name='mensagem' class="inputContato" rows="6" cols="20"></textarea>
-	    <input type="submit" value="Enviar" id="buttonContato" />
+	<form name="contactForm" ng-submit="sendContact()" novalidate>
+		<div class="alert alert-success" ng-show="sendSuccess">
+			<strong>E-mail enviado com sucesso!</strong>
+		</div>
+
+		<div class="alert alert-error" ng-show="sendError">
+			<strong>Erro ao enviar email! Tente novamente mais tarde ou me envie um email silveiracamilo@gmail.com</strong>
+		</div>
+
+		<div class="alert alert-error" ng-hide="isValidate(contactForm.name)">
+			<strong>O campo "nome" não foi preenchido!</strong>
+		</div>
+		<div class="alert alert-error" ng-hide="isValidate(contactForm.email)">
+			<strong>O campo "email" não foi preenchido!</strong>
+		</div>
+		<div class="alert alert-error" ng-hide="isValidate(contactForm.subject)">
+			<strong>O campo "assunto" não foi preenchido!</strong>
+		</div>
+		<div class="alert alert-error" ng-hide="isValidate(contactForm.message)">
+			<strong>O campo "mensagem" não foi preenchido!</strong>
+		</div>
+
+	    <p>Nome:</p><br/>
+	    <input name='name' type="text" class="form-control" ng-model="contact.name" ng-minlength="2" required/><br/>
+	    <p>Email:</p>
+	    <input name='email' type="email" class="form-control" ng-model="contact.email" required/><br/>
+	    <p>Assunto:</p>
+	    <input name='subject' type="text" class="form-control" ng-model="contact.subject" ng-minlength="3" required/><br/>
+	    <p>Mensagem:</p>
+	    <textarea name='message' class="form-control" rows="6" cols="20" ng-model="contact.msg" ng-minlength="10" required></textarea>
+	    <input type="submit" value="{{sendLabel}}" id="buttonContato" />	  
     </form>
 </div>

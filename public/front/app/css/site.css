@@ -505,11 +505,13 @@ CONTATO
 *****************************************/
 
 #content_contato {
-	width:433px;
+	width:450px;
 	background-color:#FFF;
 	color:#000;
 	margin:40px auto;
 	padding:15px 15px 15px 15px;
+	height: 100%;
+	display: table;
 }
 
 .inputContato {
@@ -521,15 +523,72 @@ CONTATO
 	font-family:Trebuchet MS;
 }
 
+.form-control {
+  display: block;
+  /*width: 100%;*/
+  width: 425px;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+          transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.form-control:-moz-placeholder {
+  color: #999999;
+}
+
+.form-control::-moz-placeholder {
+  color: #999999;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #999999;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #999999;
+}
+
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+}
+
+textarea.form-control {
+  height: auto;
+}
+
 #buttonContato {
 	border:0px;
 	background-color:#000;
 	color:#FFF;
 	padding:15px 15px 15px 15px;
+	margin-top: 15px;
 	font-size:20px;
 	font-style:italic;
-	margin-left:345px;
+	/*margin-left:345px;*/
+	border-radius: 4px;
 	cursor: pointer;
+	float: right;
 }
 
 .pagination {
@@ -587,12 +646,6 @@ CONTATO
 }
 .alert, .alert-heading {
   color: #c09853;
-}
-.alert  {
-  position: relative;
-  top: -2px;
-  /*right: -21px;*/
-  line-height: 18px;
 }
 
 .close{
@@ -855,4 +908,13 @@ html>body>div#loader span {
 .show-opacity {
     transition: all 1s linear;
     opacity: 100%;
+}
+
+
+.ng-invalid.ng-dirty {
+	border-color: #FA787E;
+} 
+
+.ng-valid.ng-dirty {
+	border-color: #009900;
 }

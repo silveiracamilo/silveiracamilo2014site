@@ -33,4 +33,19 @@ class ApiController extends BaseController {
 
 		return Response::json($services);
 	}
+
+	public function sendContact(){
+		if(Request::isMethod('post')){
+			$input = Input::all();
+
+			Mail::send('emails.contact', $input, function($message) use ($input)
+			{
+			    $message->to('silveiracamilo@gmail.com', "Camilo")->subject($input['name'].' | Contato silveiracamilo.com.br');			    
+			});
+
+			return Response::json(array('success'=>true));
+		}
+
+		return Response::json(array('success'=>false));
+	}
 }
