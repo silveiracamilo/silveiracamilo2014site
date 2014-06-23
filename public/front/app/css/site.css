@@ -125,7 +125,7 @@ a {
 	top:20px;
 }
 
-#content, #content_fique_por_dentro {
+#content {
 	position:relative;
 	width:755px;
 	margin:0 auto;
@@ -152,25 +152,165 @@ a {
 	font-size:20px;
 }
 
-#content #ultimos_trabalhos {
-	padding:15px 0px 0px 10px;
-	background-color:#FFFFFF;
-	color:#000000;
-	font-size:14px;
+
+#hero {
 }
 
-#content #ultimos_trabalhos img {
-	border:#999999 1px solid;
-	margin-top:10px;
-	margin-bottom:20px;
-	display: block;
+#hero .primary-content {
+  padding-bottom: 20px;
 }
 
-#content #ultimos_trabalhos a {
-	color: #000;
-	width: 732px;
-	display: block;
+#hero h1 {
+  font-size: 70px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #D26;
+  margin-bottom: 0.1em;
 }
+
+#hero .tagline {
+  font-size: 24px;
+  margin-bottom: 0.8em;
+  line-height: 1.2;
+}
+
+
+/* ---- big ol buttons ---- */
+
+.hero-masonry .button {
+  display: block;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  position: relative;
+  padding-left: 50px;
+  background: #D26;
+}
+
+.hero-masonry .button:hover { background: #A2C; }
+
+.hero-masonry .button .icon {
+  font-size: 32px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+/* ---- hero masonry ---- */
+
+.hero-masonry {
+  border-radius: 10px;
+  padding: 10px 1%;
+  margin-bottom: 20px;
+}
+
+.hero-masonry:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.hero-item,
+.hero-masonry .grid-sizer {
+  width: 30.9%; /* juse a lil under  47 */
+  margin: 10px 1%;
+  float: left;
+  border-radius: 8px;
+}
+
+/* necessary for proper sizing with margins */
+.hero-masonry .grid-sizer {
+  position: absolute;
+}
+
+.hero-item.texty {
+  background: #D8D6D2;
+  padding: 10px;
+}
+
+
+.hero-item.has-title,
+.hero-item.w2 {
+  width: 96%;
+}
+
+.hero-item.has-example {
+}
+
+.hero-item.has-example a {
+  font-size: 13px;
+  font-weight: bold;
+  background: #D26;
+  color: white;
+  display: block;
+  border-radius: 10px 10px 8px 8px;
+}
+
+.hero-item.has-example a:hover {
+  background: #A2C;
+  color: white;
+}
+
+.hero-item.has-example img {
+  display: block;
+  max-width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+
+.hero-item.has-example .example-title {
+  padding: 5px 10px;
+  margin: 0;
+}
+
+/* enough width for 4 columns */
+/*@media screen and ( min-width: 720px ) {
+
+  .hero-item,
+  .hero-masonry .grid-sizer {
+    width: 22.5%;
+  }
+
+  .hero-item.has-title,
+  .hero-item.w2 {
+    width: 46.9%; 
+  }
+
+}*/
+
+/* ---- desktop ---- */
+/*
+@media screen and ( min-width: 960px ) {
+
+  #hero h1 {
+    font-size: 120px;
+  }
+
+  #hero .tagline {
+    font-size: 32px;
+  }
+
+  .hero-item.has-title {
+    width: 71.4%;
+  }
+
+  .big-ol-buttons .button {
+    font-size: 1.6em;
+    padding-left: 86px;
+    min-height: 94px;
+  }
+
+  .big-ol-buttons .icon {
+    font-size: 56px;
+    left: 18px;
+    top: 16px;
+  }
+
+}*/
+
+
+
+
+
+
 
 #content #ultimos_trabalhos #todos_trabalhos {
 	width:88px;
@@ -180,73 +320,6 @@ a {
 	padding:15px 15px 15px 15px;
 	font-size:20px;
 	color:#FFFFFF;
-}
-
-#content_fique_por_dentro a {
-    color:#000;
-}
-
-#content_fique_por_dentro #fique_por_dentro_titulo {
-	margin-top:30px;
-	width:215px;
-	height:45px;
-	padding-left:10px;
-	/*padding:10px 10px 10px 10px;*/
-	background-color:#e3e3e3;
-	color:#000000;
-	font-size:20px;
-}
-
-#content_fique_por_dentro #fique_por_dentro_titulo #titulo {
-	float:left;
-	margin-top:12px;
-}
-
-#content_fique_por_dentro #fique_por_dentro_titulo #icon_twitter {
-	float:right;
-	width:50px;
-	height:41px;
-	background:url(../images/icon_twitter_fique_por_dentro.jpg) no-repeat;
-	display:block;
-	margin-top:3px;
-}
-
-#content_fique_por_dentro #fique_por_dentro_titulo span {
-	margin-top:-25px;
-}
-
-#content_fique_por_dentro #fique_por_dentro {
-	padding:20px 20px 10px 20px;
-	background-color:#FFFFFF;
-	color:#000000;
-}
-
-#content_fique_por_dentro #fique_por_dentro h3 {
-	font-size:18px;
-	margin-bottom:20px;
-}
-
-#content_fique_por_dentro #fique_por_dentro p{
-	font-size:14px;
-	margin-bottom:15px;
-}
-
-#content_fique_por_dentro #fique_por_dentro #fique_por_dentro_left {
-	width:200px;
-	float:left;
-        display:table;
-}
-
-#content_fique_por_dentro #fique_por_dentro #fique_por_dentro_right {
-	width:200px;
-	float:right;
-        display:table;
-}
-
-#content_fique_por_dentro #fique_por_dentro #fique_por_dentro_center {
-	width:200px;
-	margin:0 auto;
-        display:table;
 }
 
 #footer {
