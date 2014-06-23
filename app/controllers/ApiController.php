@@ -4,7 +4,8 @@ class ApiController extends BaseController {
 
 	public function home(){
 		$home = Home::all()[0];
-		$works = Work::orderBy('date', 'Desc')->take(5)->get();
+		//$works = Work::orderBy('date', 'Desc')->take(5)->get();
+		$works = Work::orderBy('date', 'Desc')->get();
 
 		return Response::json(array('home'=>$home, 'works'=>$works));
 	}

@@ -61,9 +61,9 @@
     </br></br>
     {{ Form::submit('Update', array('class' => 'btn btn-info')) }}
 	{{ link_to_route('admin.works.show', 'Cancel', $work->id, array('class' => 'btn')) }}
-	
-    @include('admin/works.pictures')
     
 {{ Form::close() }}
+
+@include('admin/works.pictures')
 
 @stop
