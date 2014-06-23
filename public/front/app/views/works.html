@@ -17,12 +17,11 @@
 		</ul>
 	</div>
 
-	<div class="trabalho" ng-repeat="work in works">		
+	<!--<div class="trabalho" ng-repeat="work in works">		
         <a href="#/trabalho/{{ work.path }}">
         	<strong>{{work.path}} - {{work.date}} | {{work.work_type_name}}</strong>
 			<img src="{{work.thumb}}" width=730 height=107 title="{{work.title}}" alt="{{work.title}}"/>
 		</a>
-	</div>			
-    
-    <?php echo '<div class="pagination">'.$this->pagination->create_links().'</div>'; ?>
+	</div>-->
+	<works-grid></works-grid>
 </div>
