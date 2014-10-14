@@ -1,12 +1,10 @@
-<div id="title_page">
+<div id="title_page" class="animated fadeInLeft delay1">
 	<h1 id="titulo">Serviços</h1>
 </div>
 
 <div id="content_servico">
-	<div ng-repeat="service in services">		
-		<div class="servico_left">
-			<div class="titulo_servico">{{service.name}}</div>
-			<div class="servico" ng-bind-html="service.description"></div>
-		</div>
+	<div ng-repeat="service in services" class="servico_left animated flipInY delay2{{$index}}">
+		<div class="titulo_servico">{{service.name}}</div>
+		<div class="servico" ng-bind-html="service.description"></div>
 	</div>
 </div>
