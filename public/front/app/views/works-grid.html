@@ -1,7 +1,7 @@
 <div class="hero-masonry">					
-	<div ng-repeat="work in works" class="hero-item has-example">
+	<div ng-repeat="work in works" class="hero-item has-example animated flipInY delay2{{$index}}">
 		<a href="#/trabalho/{{work.path}}">
-			<img src="{{work.thumb}}" title="{{work.titulo}}" alt="{{work.titulo}}"/>
+			<img ng-src="{{work.thumb}}" title="{{work.titulo}}" alt="{{work.titulo}}"/>
 			<p class="example-title">{{work.title}}</p>
 		</a>
 	</div>

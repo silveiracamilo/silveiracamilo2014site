@@ -1,0 +1,35 @@
+/* ===== TABS WIDGET ===== */
+.electra_widget_remove,
+.electra_widget_add{
+    width: 23px;
+    cursor: pointer;
+}
+.electra_widget_template{
+    display: none;
+}
+.electra_widget_option.electra_widget_tabs select{
+	width: 77%;
+}
+.electra_widget_option.electra_widget_ads img{
+	cursor: pointer;
+	max-width: 100%;
+}
+/* ===== TABS WIDGET ===== */
+
+#use_breadcrumbs .at-label {
+	float: right;
+}
+
+#use_breadcrumbs .rw-checkbox {
+	position: relative;
+	top: 10px;
+}
+
+#use_breadcrumbs .rw-checkbox {
+	background: red !important;
+	
+}
+
+#portfolio_settings, #blog_columns, #revolution_slider_alias, #countdown_settings {
+	display: none;
+}

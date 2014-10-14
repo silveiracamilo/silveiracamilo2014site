@@ -1,0 +1,50 @@
+a:51:{s:10:"logo_image";s:0:"";s:9:"logo_text";s:0:"";s:15:"logo_text_color";s:0:"";s:14:"logo_text_font";s:9:"Open Sans";s:14:"logo_text_size";s:0:"";s:7:"favicon";s:77:"http://teslathemes.com/demo/wp/electra/wp-content/uploads/2013/10/electra.png";s:10:"custom_css";s:0:"";s:10:"site_color";s:0:"";s:8:"bg_color";s:0:"";s:8:"bg_image";s:0:"";s:19:"bg_image_attachment";s:5:"Fixed";s:10:"share_this";a:4:{i:0;s:6:"google";i:1;s:8:"Facebook";i:2;s:7:"Twitter";i:3;s:9:"Pinterest";}s:25:"social_platforms_facebook";s:36:"https://www.facebook.com/TeslaThemes";s:24:"social_platforms_twitter";s:31:"https://twitter.com/TeslaThemes";s:25:"social_platforms_linkedin";s:50:"http://www.linkedin.com/groups/TeslaThemes-5039596";s:20:"social_platforms_rss";s:0:"";s:26:"social_platforms_pinterest";s:37:"http://www.pinterest.com/teslathemes/";s:23:"social_platforms_flickr";s:42:"http://www.flickr.com/photos/97073871@N04/";s:23:"social_platforms_google";s:50:"https://plus.google.com/u/0/103868954833393210572/";s:13:"tracking_code";s:3047:"<script type="text/javascript" src="http://teslathemes.com/demo/html/electra/js/farbtastic/farbtastic.js"></script>
+<script type="text/javascript">
+jQuery('head').append('<link rel="stylesheet" href="http://teslathemes.com/demo/html/electra/js/farbtastic/farbtastic.css" type="text/css" />')
+</script>
+<!-- ================================= START BLACK-WHITE VERSION === -->
+        <div class="color_scheme" style="top: 0; z-index: 999;">
+            <div class="color_scheme_settings"></div>
+            <div class="color_scheme_title">Style Selector</div>
+            <p>Choose your color skin</p>
+            <select name="site_color">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+            <hr/>
+            <p>Choose your layout style</p>
+            <select name="site_layout">
+                <option value="wide">Wide</option>
+                <option value="boxed">Boxed</option>
+            </select>
+            <hr/> 
+            <p>Choose site color</p>
+            <ul id="site_color">
+                <li><span class="color_1"></span></li>
+                <li><span class="color_2"></span></li>
+                <li><span class="color_3"></span></li>
+                <li><span class="color_4"></span></li>
+                <li><span class="color_pick"></span></li>        
+            </ul>
+            <hr/> 
+            <p>Patterns for boxed version</p>
+            <ul id="background_patterns">
+                <li><img src="http://teslathemes.com/demo/html/electra/images/background/square_1.png" alt="patterns" /></li>
+                <li><img src="http://teslathemes.com/demo/html/electra/images/background/square_2.png" alt="patterns" /></li>
+                <li><img src="http://teslathemes.com/demo/html/electra/images/background/square_3.png" alt="patterns" /></li>
+                <li><img src="http://teslathemes.com/demo/html/electra/images/background/square_4.png" alt="patterns" /></li>
+                <li><img src="http://teslathemes.com/demo/html/electra/images/background/square_5.png" alt="patterns" /></li>        
+            </ul>
+            <hr/> 
+            <p>Images for boxed version</p>
+            <ul id="background_images">
+                <li><img src="http://teslathemes.com/demo/html/electra/images/background/back.jpg" alt="background" /></li>
+                <li><img src="http://teslathemes.com/demo/html/electra/images/background/back_2.jpg" alt="background" /></li>
+                <li><img src="http://teslathemes.com/demo/html/electra/images/background/back_3.jpg" alt="background" /></li>
+                <li><img src="http://teslathemes.com/demo/html/electra/images/background/back_4.jpg" alt="background" /></li>
+                <li><img src="http://teslathemes.com/demo/html/electra/images/background/back_5.jpg" alt="background" /></li>        
+            </ul>
+        </div>
+        <!-- ================================= END BLACK-WHITE VERSION === -->";s:9:"404_title";s:14:"File not found";s:7:"404_img";s:79:"http://teslathemes.com/demo/wp/electra/wp-content/uploads/2013/10/error_404.png";s:8:"404_mess";s:198:"ARE YOU LOST?<br>
+                                SORRY, the page you asked for couldn't be found.
+                                <span>please try using the <span>search form</span> below.</span>";s:19:"twitter_consumerkey";s:21:"x80NefDovzq93jGeXaftw";s:22:"twitter_consumersecret";s:42:"6m6J14WKuaW62JrNBB2ORXlsJQGBQSkqEZHwUh5rEs";s:19:"twitter_accesstoken";s:50:"1527068130-g1toYpHVrVvJDchXGr3hIXz8UyyHqflPp0wjfyd";s:25:"twitter_accesstokensecret";s:40:"mtlK6TD1KFnt0GcGoYnvOk4JzFFBAXU9fwyPeFo0";s:9:"map_title";s:16:"WHERE TO FIND US";s:18:"contact_map_coords";s:37:"54.25506485127972, -2.724588546752898";s:25:"contact_map_marker_coords";s:36:"54.17436025990422,-2.938821945190373";s:16:"contact_map_zoom";s:1:"8";s:12:"contact_form";s:12:"contact_form";s:18:"contact_form_title";s:12:"CONTACT INFO";s:18:"contact_form_intro";s:46:"If you want to contact us please fill the form";s:13:"email_contact";s:18:"hi@teslathemes.com";s:18:"contact_info_title";s:14:"DROP US A LINE";s:15:"contact_address";s:16:"LONDON GB LONDON";s:13:"contact_phone";s:15:"000 222 999 777";s:11:"contact_fax";s:15:"000 222 333 444";s:17:"custom_form_title";s:19:"/ START A PROJECT /";s:17:"custom_form_email";s:0:"";s:16:"custom_form_info";s:0:"";s:18:"custom_form_button";s:0:"";s:18:"custom_input_label";a:10:{i:0;s:4:"Name";i:1;s:5:"Email";i:2;s:5:"Phone";i:3;s:7:"Hosting";i:4;s:8:"Category";i:5;s:19:"Project description";i:6;s:10:"Start time";i:7;s:0:"";i:8;s:11:"Launch time";i:9;s:0:"";}s:17:"custom_input_type";a:10:{i:0;s:4:"text";i:1;s:5:"email";i:2;s:4:"text";i:3;s:6:"select";i:4;s:6:"select";i:5;s:8:"textarea";i:6;s:6:"select";i:7;s:6:"select";i:8;s:6:"select";i:9;s:6:"select";}s:17:"custom_input_size";a:10:{i:0;s:2:"12";i:1;s:2:"12";i:2;s:2:"12";i:3;s:2:"12";i:4;s:2:"12";i:5;s:2:"12";i:6;s:2:"12";i:7;s:2:"12";i:8;s:2:"12";i:9;s:2:"12";}s:17:"custom_form_value";a:10:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:55:"25$ per year, 50$ per year, 75$ per year, 100$ per year";i:4;s:20:"Standart, basic, VIP";i:5;s:0:"";i:6;s:96:"January, February, March, April, May, June, July, August, September, October, November, December";i:7;s:34:"2013, 2012, 2011, 2010, 2009, 2008";i:8;s:96:"January, February, March, April, May, June, July, August, September, October, November, December";i:9;s:34:"2013, 2012, 2011, 2010, 2009, 2008";}s:23:"custom_form_placeholder";a:10:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:19:"Select hosting plan";i:4;s:20:"Select category tipe";i:5;s:0:"";i:6;s:5:"Month";i:7;s:4:"Year";i:8;s:0:"";i:9;s:0:"";}s:21:"custom_input_position";a:10:{i:0;s:1:"1";i:1;s:1:"1";i:2;s:1:"1";i:3;s:1:"1";i:4;s:1:"1";i:5;s:1:"1";i:6;s:1:"2";i:7;s:1:"2";i:8;s:1:"2";i:9;s:1:"2";}s:18:"subscription_title";s:0:"";s:24:"subscription_placeholder";s:0:"";}

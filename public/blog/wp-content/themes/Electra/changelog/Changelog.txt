@@ -1,0 +1,23 @@
+Version 1.1.0 - Updated: 16.10.2013
+================================================
+Added : New demo XML
+Fixed : Exceprt fix
+Fixed : Framework update (twitter fix, security fix)
+
+Version 1.0.2 - Updated: 15.10.2013
+================================================
+Added : Calendar, countdown and pricing tables
+Updated : Services custom post now has single page
+Updated : Framework update
+
+Version 1.0.1 - Updated: 09.10.2013
+================================================
+Added : Single service page
+Added : Form builder (for "Submit project" page)
+Added : Site color changer, layout selector, skin selector
+Added : "Countdown" page template
+Added : Events custom post
+
+Version 1.0.0 - Updated: 04.10.2013
+================================================
+-

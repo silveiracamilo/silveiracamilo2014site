@@ -13,6 +13,7 @@
   <meta name="author" content="Camilo da Silveira" />  
 
   <link href="/front/app/css/site.css" rel="stylesheet" type="text/css">
+  <link href="/front/app/css/animate.css" rel="stylesheet" type="text/css">
   <link href="/front/app/css/animations.css" rel="stylesheet" type="text/css">
   <link href="/front/app/css/fractal-clock.css" rel="stylesheet" type="text/css">
 
@@ -24,22 +25,22 @@
   <span id="bar"></span>
 </div>
 <div id="root">
-  <div id="header">
+  <div id="header" class="animated fadeInDown">
     <div id="header_content">
-      <div id="logo">
+      <div id="logo" class="animated zoomIn delay05">
         <a href="#/"><img src="/front/app/images/logo_silveiracamilo.jpg" alt="silveiracamilo.com.br" title="silveiracamilo.com.br"/></a>
       </div>
       <div id="menu">
         <ul>
-          <li><a href="#/">Home</a></li>
-          <li class="separator_menu">*</li>
-          <li><a href="#/trabalhos">Trabalhos</a></li>
-          <li class="separator_menu">*</li>
-          <li><a href="#/sobre">Sobre</a></li>
-          <li class="separator_menu">*</li>
-          <li><a href="#/servicos">Serviços</a></li>
-          <li class="separator_menu">*</li>
-          <li><a href="#/contato">Contato</a></li>
+          <li><a href="#/" class="animated fadeInDown delay06">Home</a></li>
+          <li class="separator_menu animated fadeInDown delay07">*</li>
+          <li><a href="#/trabalhos" class="animated fadeInDown delay08">Trabalhos</a></li>
+          <li class="separator_menu animated fadeInDown delay09">*</li>
+          <li><a href="#/sobre" class="animated fadeInDown delay1">Sobre</a></li>
+          <li class="separator_menu animated fadeInDown delay11">*</li>
+          <li><a href="#/servicos" class="animated fadeInDown delay12">Serviços</a></li>
+          <li class="separator_menu animated fadeInDown delay13">*</li>
+          <li><a href="#/contato" class="animated fadeInDown delay14">Contato</a></li>
         </ul>
       </div>          
     </div>

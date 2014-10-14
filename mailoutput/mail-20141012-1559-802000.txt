@@ -1,0 +1,26 @@
+To: silveiracamilo@gmail.com
+Subject: Novo site WordPress
+Date: Sun, 12 Oct 2014 15:59:12 +0000
+Return-Path: <wordpress@localhost>
+From: WordPress <wordpress@localhost>
+Message-ID: <efd96e39a2f9569e0ebdeb6fb9006a57@localhost>
+X-Priority: 3
+X-Mailer: PHPMailer 5.2.7 (https://github.com/PHPMailer/PHPMailer/)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+O seu novo site WordPress foi instalado com sucesso em:
+
+http://localhost:8000/blog
+
+Você pode fazer login na conta de administrador com as seguintes informações:
+
+Usuário: camilo
+Senha: A senha que você escolheu durante a instalação.
+
+Nós esperamos que você aproveite o seu novo site. Obrigado!
+
+--A Equipe do WordPress
+https://wordpress.org/
+

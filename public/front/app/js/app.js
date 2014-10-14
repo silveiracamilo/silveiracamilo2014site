@@ -62,7 +62,11 @@ function startNgApp(){
 
 function startApp() {
 	setTimeout(function(){
+		var loader = document.getElementById('loader');
+		loader.style.display =  'none';
+
 		var root = document.getElementById('root');
+		root.style.display =  'block';
 		root.style.transition = 'all 1s linear';
 	    root.style.opacity =  '1';	
 	}, 1000);	
