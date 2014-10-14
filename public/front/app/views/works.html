@@ -1,13 +1,13 @@
-<div id="title_page">
+<div id="title_page"  class="animated fadeInLeft delay1">
 	<h1 id="titulo">Trabalhos</h1>
 </div>
 
 <div id="content">
-	<h1>Feitos com carinho.</h1>
-	<h2>Fique a vontade, não tenho pressa.
+	<h1 class="animated fadeInLeft delay12">Feitos com carinho.</h1>
+	<h2 class="animated fadeInRight delay14">Fique a vontade, não tenho pressa.
           Selecionei os meus melhores trabalhos, espero que goste.</h2>
 	
-	<div id="filtro_trabalhos">
+	<div id="filtro_trabalhos"  class="animated fadeInUp delay16">
 		<p>filtrar trabalhos</p>
 		<ul>
 			<li><a href class="link_comum">todos</a></li> 
@@ -17,11 +17,5 @@
 		</ul>
 	</div>
 
-	<!--<div class="trabalho" ng-repeat="work in works">		
-        <a href="#/trabalho/{{ work.path }}">
-        	<strong>{{work.path}} - {{work.date}} | {{work.work_type_name}}</strong>
-			<img src="{{work.thumb}}" width=730 height=107 title="{{work.title}}" alt="{{work.title}}"/>
-		</a>
-	</div>-->
 	<works-grid></works-grid>
 </div>
