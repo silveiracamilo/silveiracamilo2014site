@@ -25,26 +25,45 @@
   <span id="bar"></span>
 </div>
 <div id="root">
-  <div id="header" class="animated fadeInDown">
+  <div id="title">
+    <h1>SILVEIRACAMILO</h1>
+    <h2>@</h2>
+    <h3>gmail.com</h3>
+  </div>
+  <div id="header" class="animated fadeInDown delay07">
     <div id="header_content">
-      <div id="logo" class="animated zoomIn delay05">
+      <div id="menu">
+        <ul>
+          <li><a href="#/trabalhos" class="animated fadeInDown delay18">Jobs</a></li>
+          <li class="separator_menu animated fadeInDown delay19">°</li>
+          <li><a href="#/sobre" class="animated fadeInDown delay20">Sobre</a></li>
+          <li class="separator_menu animated fadeInDown delay21">°</li>
+          <li><a href="/blog" class="animated fadeInDown delay22">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </div> 
+
+  <!--<div id="header" class="animated fadeInDown delay07">
+    <div id="header_content">
+      <div id="logo" class="animated zoomIn delay1">
         <a href="#/"><img src="/front/app/images/logo_silveiracamilo.jpg" alt="silveiracamilo.com.br" title="silveiracamilo.com.br"/></a>
       </div>
       <div id="menu">
         <ul>
-          <li><a href="#/" class="animated fadeInDown delay06">Home</a></li>
-          <li class="separator_menu animated fadeInDown delay07">*</li>
-          <li><a href="#/trabalhos" class="animated fadeInDown delay08">Trabalhos</a></li>
-          <li class="separator_menu animated fadeInDown delay09">*</li>
-          <li><a href="#/sobre" class="animated fadeInDown delay1">Sobre</a></li>
-          <li class="separator_menu animated fadeInDown delay11">*</li>
-          <li><a href="#/servicos" class="animated fadeInDown delay12">Serviços</a></li>
-          <li class="separator_menu animated fadeInDown delay13">*</li>
-          <li><a href="#/contato" class="animated fadeInDown delay14">Contato</a></li>
+          <li><a href="#/" class="animated fadeInDown delay16">Home</a></li>
+          <li class="separator_menu animated fadeInDown delay17">*</li>
+          <li><a href="#/trabalhos" class="animated fadeInDown delay18">Trabalhos</a></li>
+          <li class="separator_menu animated fadeInDown delay19">*</li>
+          <li><a href="#/sobre" class="animated fadeInDown delay20">Sobre</a></li>
+          <li class="separator_menu animated fadeInDown delay21">*</li>
+          <li><a href="#/contato" class="animated fadeInDown delay24">Contato</a></li>          
+          <li class="separator_menu animated fadeInDown delay23">*</li>
+          <li><a href="/blog" class="animated fadeInDown delay22">Blog</a></li>
         </ul>
-      </div>          
+      </div>         
     </div>
-  </div>  
+  </div>-->   
 
   <div class="view-animate-container">
     <div ng-view class="view-animate"></div>
@@ -75,9 +94,9 @@
     <div id="direitos">Copyright <?php echo date("Y"); ?> silveiracamilo.com.br</div>
   </div>
 
-  <div ng-controller="FractalClockController">
+  <!--<div ng-controller="FractalClockController">
     <canvas id="sketch" processing="sketch"></canvas>
-  </div>
+  </div>-->
 </div>
 
 <script src="/front/app/js/app.js"></script>
